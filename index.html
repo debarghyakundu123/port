@@ -73,6 +73,39 @@
     /* filter: grayscale(100%);  <-- remove this */
     transition: 0.5s; 
 }
+/* --- Updated Experience Styles for Logos --- */
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.company-logo {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 6px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.exp-item:hover .company-logo {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.exp-title-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Remove original margin from h3 and b to allow flex alignment */
+.exp-item h3 { margin-bottom: 2px; }
+.exp-item b { margin-bottom: 0; }
 .profile-img:hover { 
     /* filter: grayscale(0%);  <-- remove this too */
 }        .profile-img:hover { filter: grayscale(0%); }
@@ -159,35 +192,52 @@
     <div class="dashboard-grid">
         <div class="panel">
             <span class="panel-header">Experience / Internship</span>
-            <div class="exp-tree">
-                <div class="exp-item">
-                    <h3>Executive Data Analyst | Policybazaar</h3>
-                    <b>SEPT 2025 - PRESENT</b>
-                    <ul>
-                        <li>Supporting Health Insurance Analytics by deriving business metrics from high-velocity policy datasets.</li>
-                        <li>Built ML data segmentation models to target high-value cohorts, boosting retention efficiency by 18%.</li>
-                        <li>Architected Python pipelines (Pandas/NumPy) for ETL, reducing manual data reporting time by 40%.</li>
-                    </ul>
-                </div>
-                <div class="exp-item">
-                    <h3>Product Quality Analyst Intern| UpGrad</h3>
-                    <b>APRIL 2025 - JULY 2025</b>
-                    <ul>
-                        <li>Audited 600+ user interaction hours to resolve 30+ high-impact UX friction points.</li>
-                        <li>Designed dynamic KPI dashboards resulting in a 25% reduction in student complaints.</li>
-                        <li>Applied anomaly detection and data quality checks to align insights with stakeholder experience goals.</li>
-                    </ul>
-                </div>
-                <div class="exp-item">
-                    <h3>Data Analytics Research Intern | Quantium</h3>
-                    <b>AUG 2024 - SEPT 2024</b>
-                    <ul>
-                        <li>Engineered a pipeline to process 50K+ transactions for large-scale trend and behavior reporting.</li>
-                        <li>Identified 3 actionable purchasing patterns via EDA, driving a 15% increase in Average Order Value (AOV).</li>
-                        <li>Translated complex statistical findings into strategic roadmaps for stakeholder decision-making.</li>
-                    </ul>
-                </div>
+<div class="exp-tree">
+    <div class="exp-item">
+        <div class="exp-header">
+            <img src="pblogo.avif" alt="Policybazaar" class="company-logo">
+            <div class="exp-title-group">
+                <h3>Executive Data Analyst | Policybazaar</h3>
+                <b>SEPT 2025 - PRESENT</b>
             </div>
+        </div>
+        <ul>
+            <li>Supporting Health Insurance Analytics by deriving business metrics from high-velocity policy datasets.</li>
+            <li>Built ML data segmentation models to target high-value cohorts, boosting retention efficiency by 18%.</li>
+            <li>Architected Python pipelines (Pandas/NumPy) for ETL, reducing manual data reporting time by 40%.</li>
+        </ul>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <img src="upgradlogo.png" alt="UpGrad" class="company-logo">
+            <div class="exp-title-group">
+                <h3>Product Quality Analyst Intern | UpGrad</h3>
+                <b>APRIL 2025 - JULY 2025</b>
+            </div>
+        </div>
+        <ul>
+            <li>Audited 600+ user interaction hours to resolve 30+ high-impact UX friction points.</li>
+            <li>Designed dynamic KPI dashboards resulting in a 25% reduction in student complaints.</li>
+            <li>Applied anomaly detection and data quality checks to align insights with stakeholder experience goals.</li>
+        </ul>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <img src="quantiumlogo.jpg" alt="Quantium" class="company-logo">
+            <div class="exp-title-group">
+                <h3>Data Analytics Research Intern | Quantium</h3>
+                <b>AUG 2024 - SEPT 2024</b>
+            </div>
+        </div>
+        <ul>
+            <li>Engineered a pipeline to process 50K+ transactions for large-scale trend and behavior reporting.</li>
+            <li>Identified 3 actionable purchasing patterns via EDA, driving a 15% increase in Average Order Value (AOV).</li>
+            <li>Translated complex statistical findings into strategic roadmaps for stakeholder decision-making.</li>
+        </ul>
+    </div>
+</div>
         </div>
 
 <div class="panel">
