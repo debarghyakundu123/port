@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Library | Debarghya Kundu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { 
+            --primary: #f36f06; 
+            --bg: #0b0d0f; 
+            --card: #161a1f; 
+            --text: #ffffff; 
+            --text-dim: #94a3b8; 
+            --accent: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; padding: 40px; }
+
+        .container { max-width: 1400px; margin: 0 auto; }
+
+        /* --- Navigation --- */
+        .top-nav { margin-bottom: 30px; }
+        .back-btn { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            font-size: 0.9rem; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px; 
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        .back-btn:hover { color: var(--primary); transform: translateX(-5px); }
+
+        header { margin-bottom: 50px; border-left: 4px solid var(--primary); padding-left: 20px; }
+        h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; }
+        header p { color: var(--text-dim); margin-top: 5px; }
+
+        /* --- The 4x3 Grid Matrix --- */
+        .article-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+        }
+
+        .article-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            animation: cardAppear 0.6s ease-out backwards;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(243, 111, 6, 0.1);
+            background: linear-gradient(145deg, #1c2127, #161a1f);
+        }
+
+        .category { 
+            font-size: 0.65rem; font-weight: 800; color: var(--primary); 
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block;
+        }
+
+        h3 { font-size: 1.3rem; line-height: 1.3; margin-bottom: 15px; }
+        .desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+
+        .footer-info {
+            margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.03);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.7rem; color: var(--text-dim); font-weight: 600;
+        }
+
+        .read-btn { color: var(--primary); font-size: 1.1rem; transition: 0.3s; }
+        .article-card:hover .read-btn { transform: translateX(5px); }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1200px) { .article-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { 
+            .article-grid { grid-template-columns: 1fr; } 
+            body { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav class="top-nav">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-chevron-left"></i> Return to Home Page
+        </a>
+    </nav>
+
+    <header>
+        <h1>Topics</h1>
+        <p>Strategic Insights & Technical Documentation</p>
+    </header>
+
+    <div class="article-grid">
+        <a href="Blogs\roadmap-article.html" class="article-card" style="animation-delay: 0.1s;">
+            <div>
+                <span class="category">Strategy</span>
+                <h3>The Analyst Roadmap 2026</h3>
+                <p class="desc">A structured execution plan for mastering the modern data stack from SQL to Storytelling.</p>
+            </div>
+            <div class="footer-info">
+                <span>8 MIN READ</span>
+                <i class="fas fa-arrow-right read-btn"></i>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

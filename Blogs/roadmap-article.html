@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap | Breaking Into Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { 
+            --primary: #f36f06; 
+            --bg: #0b0d0f; 
+            --card: #161a1f; 
+            --text: #ffffff; 
+            --text-dim: #94a3b8; 
+            --accent: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+
+        .back-nav { margin-bottom: 30px; }
+        .back-link { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .back-link:hover { color: var(--primary); }
+
+        header { 
+            display: flex; 
+            flex-direction: column; 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+            margin-bottom: 50px;
+        }
+        .meta { color: var(--primary); font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 25px; max-width: 900px; }
+        
+        .author-box { display: flex; align-items: center; gap: 15px; }
+        .author-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary); object-fit: cover; }
+        .author-info span { display: block; font-size: 1rem; font-weight: 600; }
+        .author-info small { color: var(--text-dim); }
+
+        .section-title { font-size: 2rem; margin: 60px 0 30px; border-left: 4px solid var(--primary); padding-left: 20px; }
+        .intro-text { font-size: 1.25rem; color: var(--text-dim); margin-bottom: 30px; max-width: 800px; line-height: 1.8; }
+        
+        .skills-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 50px;
+        }
+
+        .skill-card { 
+            background: var(--card); 
+            padding: 30px; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s ease;
+        }
+        .skill-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .skill-card h2 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
+        .skill-card i { color: var(--primary); margin-right: 10px; }
+        .skill-card p { color: var(--text-dim); font-size: 0.95rem; }
+
+        .concept-tags { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+        .concept-tags li { 
+            background: rgba(243, 111, 6, 0.1); 
+            color: var(--primary); 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            border: 1px solid rgba(243, 111, 6, 0.2);
+            transition: 0.3s;
+        }
+        .concept-tags li:hover { background: var(--primary); color: #000; }
+
+        /* Roadmap Horizontal Layout */
+        .roadmap {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .roadmap-step {
+            flex: 1;
+            background: var(--card);
+            padding: 30px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .roadmap-step:hover { border-color: var(--accent); }
+        .month-circle {
+            width: 70px;
+            height: 70px;
+            background: rgba(243, 111, 6, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.85rem;
+            line-height: 1.2;
+        }
+
+        .footer-cta {
+            background: linear-gradient(90deg, #f36f06 0%, #ff8c32 100%);
+            padding: 40px;
+            border-radius: 24px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px;
+        }
+        .cta-content h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .cta-content p { color: rgba(0,0,0,0.8); font-weight: 600; font-size: 1.1rem; }
+
+        footer { text-align: center; margin-top: 60px; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media (max-width: 900px) {
+            .roadmap { flex-direction: column; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .container { padding: 20px; }
+            .footer-cta { flex-direction: column; text-align: center; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<nav class="back-nav">
+    <a href="javascript:history.back()" class="back-link">
+        <i class="fas fa-arrow-left"></i> Return to Strategic Insights & Technical Documentation
+    </a>
+</nav>
+
+<header>
+    <span class="meta">Strategy • 8 Min Read</span>
+    <h1>Breaking Into Analytics:<br>A Complete Professional Guide</h1>
+    <div class="author-box">
+        <div class="author-info">
+            
+            <span>Debarghya Kundu</span>
+            <small>Insight Architect & IT Undergraduate</small>
+        </div>
+    </div>
+</header>
+
+    <h2 class="section-title">Core Skill Matrix</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h2><i class="fas fa-database"></i> Data</h2>
+            <p>SQL, Databases, Querying Large Datasets</p>
+        </div>
+        <div class="skill-card">
+            <h2><i class="fas fa-code"></i> Programming</h2>
+            <p>Python, Pandas, NumPy, Automation</p>
+        </div>
+        <div class="skill-card">
+            <h2><i class="fas fa-chart-line"></i> Visualization</h2>
+            <p>Power BI, Tableau, Storytelling with Data</p>
+        </div>
+        <div class="skill-card">
+            <h2><i class="fas fa-brain"></i> Analytics</h2>
+            <p>Statistics, Pattern Discovery, Business Logic</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Modern Data Stack</h2>
+    <ul class="concept-tags" style="margin-bottom:40px">
+        <li>SQL</li>
+        <li>Python</li>
+        <li>Pandas</li>
+        <li>Power BI</li>
+        <li>Tableau</li>
+        <li>Excel</li>
+        <li>BigQuery</li>
+    </ul>
+
+    <section>
+        <h2 class="section-title">Why Data Analytics Matters</h2>
+        <p class="intro-text">
+            Organizations today rely heavily on insights derived from data. From marketing performance to customer behavior analysis, companies depend on professionals skilled in Data Analytics to interpret patterns and guide strategic decisions. As industries digitize, the demand for analysts has skyrocketed.
+        </p>
+    </section>
+
+    <h2 class="section-title">Real Analyst Tasks & Metrics</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h2><i class="fas fa-tasks"></i> Daily Workflow</h2>
+            <ul style="color: var(--text-dim); margin-left: 20px; font-size: 0.9rem; list-style: disc;">
+                <li>Extracting data using SQL</li>
+                <li>Cleaning messy datasets</li>
+                <li>Building automated dashboards</li>
+                <li>Identifying hidden market trends</li>
+                <li>Presenting insights to stakeholders</li>
+            </ul>
+        </div>
+        <div class="skill-card">
+            <h2><i class="fas fa-bullseye"></i> Key Metrics</h2>
+            <ul class="concept-tags">
+                <li>Conversion Rate</li>
+                <li>Retention</li>
+                <li>Revenue Growth</li>
+                <li>Churn Rate</li>
+                <li>AOV</li>
+            </ul>
+        </div>
+    </div>
+<h2 class="section-title">10 Pillars of a High-Impact Analyst</h2>
+<div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+    <div class="skill-card">
+        <ul style="color: var(--text-dim); list-style: none; display: flex; flex-direction: column; gap: 15px;">
+            <li><i class="fas fa-search-dollar" style="color: var(--primary);"></i> <b>Business Acumen:</b> Understanding how the company actually makes money before touching the data.</li>
+            <li><i class="fas fa-filter" style="color: var(--primary);"></i> <b>Data Skepticism:</b> Always questioning the source and quality of data. "Is this null value an error or a signal?"</li>
+            <li><i class="fas fa-project-diagram" style="color: var(--primary);"></i> <b>Structured Thinking:</b> Breaking complex business problems into smaller, measurable hypotheses.</li>
+            <li><i class="fas fa-comment-dots" style="color: var(--primary);"></i> <b>Data Storytelling:</b> The ability to explain "the why" behind the numbers to non-technical stakeholders.</li>
+            <li><i class="fas fa-vial" style="color: var(--primary);"></i> <b>Statistical Intuition:</b> Recognizing the difference between a random fluctuation and a significant trend.</li>
+        </ul>
+    </div>
+    <div class="skill-card">
+        <ul style="color: var(--text-dim); list-style: none; display: flex; flex-direction: column; gap: 15px;">
+            <li><i class="fas fa-layer-group" style="color: var(--primary);"></i> <b>Domain Expertise:</b> Mastering the specific industry (e.g., Fintech, Aviation) you are analyzing.</li>
+            <li><i class="fas fa-terminal" style="color: var(--primary);"></i> <b>Technical Agility:</b> Being able to switch between SQL, Python, and BI tools based on the task efficiency.</li>
+            <li><i class="fas fa-eye" style="color: var(--primary);"></i> <b>Attention to Detail:</b> Catching a 0.5% discrepancy in a report before the CFO does.</li>
+            <li><i class="fas fa-sync-alt" style="color: var(--primary);"></i> <b>Adaptability:</b> Keeping up with the rapid shift from traditional BI to Generative AI and LLM-driven insights.</li>
+            <li><i class="fas fa-user-tie" style="color: var(--primary);"></i> <b>Ethical Integrity:</b> Ensuring data privacy and presenting unbiased findings, even when the truth is uncomfortable.</li>
+        </ul>
+    </div>
+</div>
+    <h2 class="section-title">Learning Roadmap</h2>
+    <div class="roadmap">
+        <div class="roadmap-step">
+            <div class="month-circle">Month<br>01</div>
+            <h3>Foundations</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">Master SQL (JOINs/CTEs) and Advanced Excel analysis.</p>
+        </div>
+        <div class="roadmap-step">
+            <div class="month-circle">Month<br>02</div>
+            <h3>Toolkit</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">Python fundamentals, Pandas library, and Data Cleaning.</p>
+        </div>
+        <div class="roadmap-step">
+            <div class="month-circle">Month<br>03</div>
+            <h3>Portfolio</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">Build interactive dashboards and document on GitHub.</p>
+        </div>
+    </div>
+
+    <div class="footer-cta">
+        <div class="cta-content">
+            <h3>Ready to start building?</h3>
+            <p>Practical experience transforms knowledge into skill. Start your first project today.</p>
+        </div>
+        <i class="fas fa-rocket fa-2x" style="opacity:0.5"></i>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 DEBARGHYA KUNDU // INSIGHT ARCHITECT</p>
+    </footer>
+</div>
+
+</body>
+</html>
