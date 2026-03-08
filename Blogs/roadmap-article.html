@@ -137,8 +137,8 @@
 
 <div class="container">
 <nav class="back-nav">
-    <a href="index.html" class="back-link" onclick="goBack(event)">
-        <i class="fas fa-arrow-left"></i> Return to Strategic Insights & Technical Documentation
+<a href="../index.html" onclick="if(document.referrer) { window.history.back(); return false; }" class="back-link">
+    <i class="fas fa-arrow-left"></i> Return to Strategic Insights & Technical Documentation
     </a>
 </nav>
 
