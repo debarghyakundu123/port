@@ -137,10 +137,21 @@
 
 <div class="container">
 <nav class="back-nav">
-    <a href="javascript:history.back()" class="back-link">
+    <a href="index.html" class="back-link" onclick="goBack(event)">
         <i class="fas fa-arrow-left"></i> Return to Strategic Insights & Technical Documentation
     </a>
 </nav>
+
+<script>
+function goBack(event) {
+    // If there is history to go back to
+    if (document.referrer.indexOf(window.location.host) !== -1) {
+        event.preventDefault(); // Stop the link from following the href
+        window.history.back();  // Go back
+    }
+    // If no history (new tab), it will naturally follow the href="index.html"
+}
+</script>
 
 <header>
     <span class="meta">Strategy • 8 Min Read</span>
