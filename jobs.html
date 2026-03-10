@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring Dashboard | Debarghya Kundu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f36f06;
+            --bg: #0d0f12;
+            --card: #161a1f;
+            --text: #ffffff;
+            --text-dim: #94a3b8;
+            --accent: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            padding: 40px; 
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dashboard-container { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            width: 100%;
+        }
+        
+        .header-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .back-link { 
+            text-decoration: none; 
+            color: var(--text-dim); 
+            font-size: 0.85rem; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: 0.3s; 
+        }
+        .back-link:hover { color: var(--primary); }
+
+        .timestamp { font-size: 0.75rem; color: var(--text-dim); opacity: 0.6; }
+
+        /* --- Horizontal Grid Layout --- */
+        .jobs-row { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px; 
+            align-items: stretch;
+        }
+
+        .job-card-fixed { 
+            background: var(--card); 
+            border-radius: 24px; 
+            padding: 40px; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card-fixed:hover { 
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-header { margin-bottom: 25px; }
+        .role-badge { 
+            font-size: 0.65rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.05);
+            padding: 5px 12px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        h2 { font-size: 2.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 8px; }
+        .loc { font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; line-height: 1.4; margin-top: 10px; }
+
+        .job-body { flex-grow: 1; margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .job-body h3 { font-size: 0.85rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
+        ul { list-style: none; margin-bottom: 30px; }
+        li { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 12px; display: flex; gap: 10px; line-height: 1.4; }
+        li i { margin-top: 4px; font-size: 0.8rem; }
+
+        .apply-btn-wide { 
+            display: block; 
+            text-align: center; 
+            background: var(--primary); 
+            color: white; 
+            text-decoration: none; 
+            padding: 18px; 
+            border-radius: 12px; 
+            font-weight: 800; 
+            transition: 0.3s;
+        }
+        .apply-btn-wide:hover { filter: brightness(1.2); transform: scale(1.02); }
+
+        .mentions { margin-top: 20px; font-size: 0.65rem; color: var(--text-dim); text-align: center; opacity: 0.5; }
+
+        @media (max-width: 1100px) {
+            .jobs-row { grid-template-columns: 1fr; }
+            body { align-items: flex-start; padding: 20px; }
+            h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <div class="header-meta">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Return to Portfolio</a>
+        <div class="timestamp">Last Updated: March 2026</div>
+    </div>
+
+    <div class="jobs-row">
+        <div class="job-card-fixed" style="border-top: 4px solid var(--primary);">
+            <div class="card-header">
+                <span class="role-badge" style="color: var(--primary);">Operations Strategy</span>
+                <h2>WFM Analyst</h2>
+                <div class="loc" style="color: var(--primary);"><i class="fas fa-map-marker-alt"></i> Gurgaon, India | Planning & Data Solutions</div>
+            </div>
+            
+            <div class="job-body">
+                <h3><i class="fas fa-tasks" style="color: var(--primary);"></i> What you'll work on</h3>
+                <ul>
+                    <li><i class="fas fa-calendar-alt" style="color: var(--accent);"></i> Roster & schedule planning for operations teams</li>
+                    <li><i class="fas fa-chart-area" style="color: var(--accent);"></i> Attendance, shrinkage & adherence tracking</li>
+                    <li><i class="fas fa-users-cog" style="color: var(--accent);"></i> Manpower planning & capacity management</li>
+                    <li><i class="fas fa-handshake" style="color: var(--accent);"></i> Partner with Ops managers to maintain service levels</li>
+                    <li><i class="fas fa-chart-line" style="color: var(--accent);"></i> Building reports, insights, and operational dashboards</li>
+                </ul>
+                
+                <h3><i class="fas fa-user-check" style="color: var(--primary);"></i> We’d love to connect if you:</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Have experience in WFM / Roster Management</li>
+                    <li><i class="fas fa-check"></i> Understand staffing models & attendance data</li>
+                    <li><i class="fas fa-check"></i> Are strong with Excel & data analysis</li>
+                </ul>
+            </div>
+            
+            <a href="https://lnkd.in/g5ZWk8Jm" target="_blank" class="apply-btn-wide">Apply for WFM Role →</a>
+        </div>
+
+        <div class="job-card-fixed" style="border-top: 4px solid var(--accent);">
+            <div class="card-header">
+                <span class="role-badge" style="color: var(--accent);">Process Transformation</span>
+                <h2>Ops Excellence</h2>
+                <div class="loc" style="color: var(--accent);"><i class="fas fa-award"></i> Quality & Process Experts | Health Insurance</div>
+            </div>
+            
+            <div class="job-body">
+                <h3><i class="fas fa-search-plus" style="color: var(--accent);"></i> Role Highlights</h3>
+                <ul>
+                    <li><i class="fas fa-microscope" style="color: var(--accent);"></i> Audit health insurance service processes</li>
+                    <li><i class="fas fa-chart-bar" style="color: var(--accent);"></i> Review key metrics: CSAT, Quality %, Resolution TAT</li>
+                    <li><i class="fas fa-sync" style="color: var(--accent);"></i> Weekly/fortnightly reviews with Ops leadership</li>
+                    <li><i class="fas fa-lightbulb" style="color: var(--accent);"></i> Drive insights, RCA, and improvement actions</li>
+                </ul>
+
+                <h3><i class="fas fa-certificate" style="color: var(--accent);"></i> Who should apply</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Having Lean Six Sigma Knowledge</li>
+                    <li><i class="fas fa-check"></i> Experience in Audit / QA / Excellence</li>
+                    <li><i class="fas fa-check"></i> Strong Excel & PowerPoint skills</li>
+                    <li><i class="fas fa-check"></i> Comfortable working with Ops stakeholders</li>
+                </ul>
+            </div>
+            
+            <a href="https://lnkd.in/gn2sX-Y3" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply for Ops Role →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
