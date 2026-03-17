@@ -45,6 +45,37 @@
     user-select: none;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
+@keyframes blink-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(16, 185, 129, 0);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        transform: scale(1);
+    }
+}
+
+.job-btn-blink {
+    animation: blink-glow 2s infinite ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Add a "Live" dot inside the button */
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ff4b2b;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 0 0 10px #ff4b2b;
+}
 .marquee-content {
     display: flex;
     gap: 40px;
@@ -213,9 +244,10 @@ function startJobsWithMusic() {
             <a href="article.html" class="tag" style="border: 1px solid var(--primary); color: var(--primary); padding: 12px 25px; font-weight: 600; text-decoration: none; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
                 <i class="fas fa-pen-nib"></i> Articles
             </a>
-            <a href="jobs.html" class="tag" style="background: var(--accent); color: white; border: none; padding: 12px 25px; font-weight: 600; text-decoration: none; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                <i class="fas fa-briefcase"></i> Job Opportunities
-            </a>
+            <a href="jobs.html" class="tag job-btn-blink" style="background: var(--accent); color: white; border: none; padding: 12px 25px; font-weight: 600; text-decoration: none; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
+            <span class="live-dot"></span>
+            <i class="fas fa-briefcase"></i> Job Opportunities
+        </a>
         </div>
         </div>
         <div class="profile-halo">
