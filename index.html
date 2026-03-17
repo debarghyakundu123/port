@@ -158,6 +158,9 @@
     </style>
 </head>
 <body>
+<audio id="bgm" loop preload="auto">
+    <source src="Coolie-Powerhouse-Bgm.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
     <nav class="utility-bar">
@@ -425,6 +428,29 @@
         navigator.clipboard.writeText("debarghyakundu319@gmail.com");
         alert("Email copied to clipboard!");
     }
+</script>
+<script>
+    const audio = document.getElementById('bgm');
+    audio.volume = 0.6; // 60% volume
+
+    // This function handles the "Unblock"
+    const unlockAudio = () => {
+        audio.play().then(() => {
+            // Once it starts playing, we clean up all listeners
+            ['click', 'touchstart', 'scroll', 'mousemove'].forEach(evt => {
+                document.removeEventListener(evt, unlockAudio);
+            });
+            console.log("Audio playing successfully");
+        }).catch(error => {
+            console.log("Waiting for user interaction...");
+        });
+    };
+
+    // Add listeners for every possible way a user "starts" using a page
+    document.addEventListener('click', unlockAudio);
+    document.addEventListener('touchstart', unlockAudio);
+    document.addEventListener('scroll', unlockAudio);
+    document.addEventListener('mousemove', unlockAudio); // Good for desktop
 </script>
 
 </body>
