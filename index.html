@@ -158,7 +158,24 @@
     </style>
 </head>
 <body>
+<audio id="bgm" loop>
+    <source src="Coolie-Powerhouse-Bgm.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+function startJobsWithMusic() {
+    const audio = document.getElementById('bgm');
+    audio.volume = 0.7; // High volume for impact
+    
+    // 1. Start the music IMMEDIATELY on click
+    audio.play();
+
+    // 2. Wait a tiny fraction of a second so the ear catches the beat, then switch pages
+    setTimeout(() => {
+        window.location.href = "jobs.html?playing=true";
+    }, 100); 
+}
+</script>
 
 <div class="container">
     <nav class="utility-bar">
