@@ -116,6 +116,36 @@
     </style>
 </head>
 <body>
+<audio id="bgm" loop autoplay muted preload="auto">
+    <source src="Coolie-Powerhouse-Bgm.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const audio = document.getElementById('bgm');
+    audio.volume = 0.5; // Set volume to 50%
+
+    // This function forces the audio to unmute and play instantly
+    const forceStart = () => {
+        audio.muted = false;
+        audio.play().catch(e => {
+            // Browser still blocking? Try playing again on next movement
+            console.log("Waiting for user activity...");
+        });
+        
+        // Clean up: stop listening once it's playing
+        ['mousemove', 'scroll', 'touchstart', 'click', 'keydown'].forEach(event => {
+            document.removeEventListener(event, forceStart);
+        });
+    };
+
+    // Listen for literally ANY activity (mouse move, scroll, key press)
+    document.addEventListener('mousemove', forceStart);
+    document.addEventListener('scroll', forceStart);
+    document.addEventListener('touchstart', forceStart);
+    document.addEventListener('click', forceStart);
+    document.addEventListener('keydown', forceStart);
+</script>
+
 
 <div class="dashboard-container">
     <div class="header-meta">
