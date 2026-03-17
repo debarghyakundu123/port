@@ -116,30 +116,40 @@
     </style>
 </head>
 <body>
+
 <audio id="bgm" loop preload="auto">
     <source src="Coolie-Powerhouse-Bgm.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     const audio = document.getElementById('bgm');
-    audio.volume = 0.3; // High impact volume
+    audio.volume = 0.5; 
 
     const attemptPlay = () => {
         audio.play().then(() => {
-            console.log("BGM Started Instantly");
-            // Remove listeners once playing
+            // Remove initial trigger listeners once it starts
             ['click', 'mousemove', 'scroll', 'touchstart'].forEach(evt => {
                 document.removeEventListener(evt, attemptPlay);
             });
-        }).catch(() => {
-            console.log("Waiting for interaction...");
-        });
+        }).catch(() => {});
     };
 
-    // 1. Try to play immediately (works if coming from a link click)
+    // --- Visibility Logic: Stop when leaving, Play when returning ---
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            audio.pause();
+            console.log("User left the tab - Music Paused");
+        } else {
+            // Only resume if we have already moved/clicked once
+            audio.play().catch(() => {
+                console.log("Waiting for interaction to resume...");
+            });
+            console.log("User returned - Music Resumed");
+        }
+    });
+
+    // Initial Triggers
     window.addEventListener('DOMContentLoaded', attemptPlay);
-    
-    // 2. Fallback: Catch the very first movement
     document.addEventListener('click', attemptPlay);
     document.addEventListener('mousemove', attemptPlay);
     document.addEventListener('scroll', attemptPlay);
@@ -163,29 +173,29 @@
             <div class="job-body">
                 <h3><i class="fas fa-users"></i> Role Overview</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> 4-6 years experience in HR Business Partnering</li>
-                    <li><i class="fas fa-check"></i> Mandatory fluency in Malayalam</li>
-                    <li><i class="fas fa-check"></i> MBA/PGDM in HR required</li>
+                    <li><i class="fas fa-check"></i> 4-6 years experience in HRBP</li>
+                    <li><i class="fas fa-check"></i> Malayalam language proficiency mandatory</li>
+                    <li><i class="fas fa-check"></i> MBA / PGDM in HR required</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/search/?alertAction=viewjobs&currentJobId=4384482765&f_C=303524&f_TPR=a1773616376-&geoId=92000000&keywords=&origin=JOB_ALERT_IN_APP_NOTIFICATION&originToLandingJobPostings=4364772093&savedSearchId=15507386044&sortBy=R" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4384482765" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply on LinkedIn →</a>
         </div>
 
         <div class="job-card-fixed" style="border-top: 4px solid var(--accent);">
             <div class="card-header">
                 <span class="role-badge" style="color: var(--accent);">Training</span>
                 <h2>Training Manager</h2>
-                <div class="loc"><i class="fas fa-chalkboard-teacher"></i> Gurgaon | Sales Training</div>
+                <div class="loc"><i class="fas fa-chalkboard-teacher"></i> Gurgaon | Plot 119 Office</div>
             </div>
             <div class="job-body">
                 <h3><i class="fas fa-star"></i> Deliverables</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Lead sales, product, and soft skills training</li>
-                    <li><i class="fas fa-check"></i> Identify training needs & conduct refresher courses</li>
-                    <li><i class="fas fa-check"></i> Proficiency in coaching & mentoring agents</li>
+                    <li><i class="fas fa-check"></i> New hire sales & product training</li>
+                    <li><i class="fas fa-check"></i> Refresher training & call auditing</li>
+                    <li><i class="fas fa-check"></i> 6 Days Work from Office</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/search/?alertAction=viewjobs&currentJobId=4384025037&f_C=303524&f_TPR=a1773616376-&geoId=92000000&keywords=&origin=JOB_ALERT_IN_APP_NOTIFICATION&originToLandingJobPostings=4364772093&savedSearchId=15507386044&sortBy=R" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4384025037" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply on LinkedIn →</a>
         </div>
     </div>
 
@@ -195,34 +205,34 @@
             <div class="card-header">
                 <span class="role-badge" style="color: var(--primary);">FP&A</span>
                 <h2>Financial Planning & Analysis</h2>
-                <div class="loc"><i class="fas fa-chart-line"></i> Gurgaon | CA Required</div>
+                <div class="loc"><i class="fas fa-chart-line"></i> Gurgaon | Corporate Finance</div>
             </div>
             <div class="job-body">
                 <h3><i class="fas fa-briefcase"></i> Key Responsibilities</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Drive financial planning & forecasting process</li>
-                    <li><i class="fas fa-check"></i> Monthly financial analysis & variance reporting</li>
-                    <li><i class="fas fa-check"></i> Automation of FP&A via BI tools</li>
+                    <li><i class="fas fa-check"></i> CA qualification mandatory</li>
+                    <li><i class="fas fa-check"></i> Partner with leaders for forecasting</li>
+                    <li><i class="fas fa-check"></i> Drive automation via BI tools</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/search/?alertAction=viewjobs&currentJobId=4384489370&f_C=303524&f_TPR=a1773616376-&geoId=92000000&keywords=&origin=JOB_ALERT_IN_APP_NOTIFICATION&originToLandingJobPostings=4364772093&savedSearchId=15507386044&sortBy=R" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4384489370" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
         </div>
 
         <div class="job-card-fixed" style="border-top: 4px solid var(--primary);">
             <div class="card-header">
                 <span class="role-badge" style="color: var(--primary);">Sales</span>
                 <h2>Relationship Manager</h2>
-                <div class="loc"><i class="fas fa-handshake"></i> Navi Mumbai | Field Sales</div>
+                <div class="loc"><i class="fas fa-handshake"></i> Navi Mumbai | Insurance Sales</div>
             </div>
             <div class="job-body">
                 <h3><i class="fas fa-bullseye"></i> Goal</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Acquire new customers via field sales</li>
-                    <li><i class="fas fa-check"></i> Selling Health/Term Insurance products</li>
-                    <li><i class="fas fa-check"></i> Requires Two-wheeler & Driving License</li>
+                    <li><i class="fas fa-check"></i> Field sales for Health/Term Insurance</li>
+                    <li><i class="fas fa-check"></i> Build long-term customer relations</li>
+                    <li><i class="fas fa-check"></i> Two-wheeler and License required</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/search/?alertAction=viewjobs&currentJobId=4384472126&f_C=303524&f_TPR=a1773616376-&geoId=92000000&keywords=&origin=JOB_ALERT_IN_APP_NOTIFICATION&originToLandingJobPostings=4364772093&savedSearchId=15507386044&sortBy=R" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4384472126" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
         </div>
     </div>
 
@@ -238,28 +248,28 @@
                 <h3><i class="fas fa-tasks"></i> Focus Area</h3>
                 <ul>
                     <li><i class="fas fa-check"></i> Supervise team of Quality Analysts</li>
-                    <li><i class="fas fa-check"></i> Manage Quality metrics and Compliance</li>
-                    <li><i class="fas fa-check"></i> Root cause analysis and deep dive reporting</li>
+                    <li><i class="fas fa-check"></i> Transition batches from NHT to OJT</li>
+                    <li><i class="fas fa-check"></i> Root Cause Analysis (RCA) reporting</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/search/?alertAction=viewjobs&currentJobId=4384031616&f_C=303524&f_TPR=a1773616376-&geoId=92000000&keywords=&origin=JOB_ALERT_IN_APP_NOTIFICATION&originToLandingJobPostings=4364772093&savedSearchId=15507386044&sortBy=R" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4384031616" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
         </div>
 
         <div class="job-card-fixed" style="border-top: 4px solid var(--blue);">
             <div class="card-header">
                 <span class="role-badge" style="color: var(--blue);">L&D</span>
                 <h2>Process Trainer</h2>
-                <div class="loc"><i class="fas fa-graduation-cap"></i> Hyderabad | 2+ Yrs Exp</div>
+                <div class="loc"><i class="fas fa-graduation-cap"></i> Hyderabad | Sales Training</div>
             </div>
             <div class="job-body">
                 <h3><i class="fas fa-book"></i> Training Scope</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Train hires on product knowledge & sales flow</li>
-                    <li><i class="fas fa-check"></i> Conduct call audits and performance feedback</li>
+                    <li><i class="fas fa-check"></i> Train on Product (Term/Investment)</li>
+                    <li><i class="fas fa-check"></i> Soft skills and objection handling</li>
                     <li><i class="fas fa-check"></i> Fluent in English and Hindi</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/search/?alertAction=viewjobs&currentJobId=4384428896&f_C=303524&f_TPR=a1773616376-&geoId=92000000&keywords=&origin=JOB_ALERT_IN_APP_NOTIFICATION&originToLandingJobPostings=4364772093&savedSearchId=15507386044&sortBy=R" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4384033544" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
         </div>
     </div>
 </div>
