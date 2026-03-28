@@ -15,104 +15,37 @@
             --text-dim: #94a3b8;
             --radius: 24px;
             --accent: #10b981;
-            --blue: #3b82f6;
-            --purple: #a855f7;
+            --blue: #005daa;
+            --purple: #42145f;
+            --oak: #00d084;
+            --airtel: #e40000;
+            --pb: #ff6a00;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: var(--bg); 
-            color: var(--text); 
-            font-family: 'Inter', sans-serif; 
-            line-height: 1.6; 
-            padding: 40px; 
-            min-height: 100vh;
-        }
-        
-        .dashboard-container { 
-            max-width: 1300px; 
-            margin: 0 auto; 
-            width: 100%;
-        }
-        
-        .header-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .back-link { 
-            text-decoration: none; 
-            color: var(--text-dim); 
-            font-size: 0.85rem; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 8px; 
-            transition: 0.3s; 
-        }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; padding: 40px; min-height: 100vh; }
+        .dashboard-container { max-width: 1300px; margin: 0 auto; width: 100%; }
+        .header-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .back-link { text-decoration: none; color: var(--text-dim); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
         .back-link:hover { color: var(--primary); }
-
         .timestamp { font-size: 0.75rem; color: var(--text-dim); opacity: 0.6; }
-
-        .section-label {
-            font-size: 0.7rem; color: var(--primary); letter-spacing: 3px;
-            text-transform: uppercase; font-weight: 800; margin: 45px 0 20px 0;
-            display: flex; align-items: center; gap: 15px;
-        }
+        .section-label { font-size: 0.7rem; color: var(--primary); letter-spacing: 3px; text-transform: uppercase; font-weight: 800; margin: 45px 0 20px 0; display: flex; align-items: center; gap: 15px; }
         .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.05); }
-
-        .jobs-row { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 25px; 
-            align-items: stretch;
-            margin-bottom: 40px;
-        }
-
-        .job-card-fixed { 
-            background: var(--card); 
-            border-radius: var(--radius); 
-            padding: 40px; 
-            border: 1px solid rgba(255,255,255,0.05); 
-            display: flex;
-            flex-direction: column;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .job-card-fixed:hover { 
-            border-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
+        .jobs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: stretch; margin-bottom: 40px; }
+        .job-card-fixed { background: var(--card); border-radius: var(--radius); padding: 40px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .job-card-fixed:hover { border-color: rgba(255, 255, 255, 0.1); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .card-header { margin-bottom: 25px; }
-        .role-badge { 
-            font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
-            background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 50px; margin-bottom: 15px; display: inline-block;
-        }
-        
-        h2 { font-size: 2.1rem; font-weight: 800; line-height: 1.1; margin-bottom: 8px; }
+        .role-badge { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; background: rgba(255,255,255,0.05); padding: 5px 12px; border-radius: 50px; margin-bottom: 15px; display: inline-block; }
+        h2 { font-size: 1.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 8px; }
         .loc { font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; line-height: 1.4; margin-top: 10px; color: var(--text-dim); }
-
         .job-body { flex-grow: 1; margin-top: 25px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); }
         .job-body h3 { font-size: 0.85rem; color: #fff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-
         ul { list-style: none; margin-bottom: 30px; }
         li { color: var(--text-dim); font-size: 0.88rem; margin-bottom: 12px; display: flex; gap: 10px; line-height: 1.4; }
         li i { margin-top: 4px; font-size: 0.8rem; color: var(--accent); }
-
-        .apply-btn-wide { 
-            display: block; text-align: center; background: var(--primary); color: white; 
-            text-decoration: none; padding: 18px; border-radius: 12px; font-weight: 800; transition: 0.3s;
-        }
+        .apply-btn-wide { display: block; text-align: center; background: var(--primary); color: white; text-decoration: none; padding: 18px; border-radius: 12px; font-weight: 800; transition: 0.3s; }
         .apply-btn-wide:hover { filter: brightness(1.1); transform: scale(1.02); }
-
-        @media (max-width: 1100px) {
-            .jobs-row { grid-template-columns: 1fr; }
-            body { padding: 20px; }
-            h2 { font-size: 1.7rem; }
-        }
+        @media (max-width: 1100px) { .jobs-row { grid-template-columns: 1fr; } body { padding: 20px; } h2 { font-size: 1.7rem; } }
     </style>
 </head>
 <body>
@@ -124,31 +57,16 @@
 <script>
     const audio = document.getElementById('bgm');
     audio.volume = 0.5; 
-
     const attemptPlay = () => {
         audio.play().then(() => {
-            // Remove initial trigger listeners once it starts
             ['click', 'mousemove', 'scroll', 'touchstart'].forEach(evt => {
                 document.removeEventListener(evt, attemptPlay);
             });
         }).catch(() => {});
     };
-
-    // --- Visibility Logic: Stop when leaving, Play when returning ---
     document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            audio.pause();
-            console.log("User left the tab - Music Paused");
-        } else {
-            // Only resume if we have already moved/clicked once
-            audio.play().catch(() => {
-                console.log("Waiting for interaction to resume...");
-            });
-            console.log("User returned - Music Resumed");
-        }
+        if (document.hidden) { audio.pause(); } else { audio.play().catch(() => {}); }
     });
-
-    // Initial Triggers
     window.addEventListener('DOMContentLoaded', attemptPlay);
     document.addEventListener('click', attemptPlay);
     document.addEventListener('mousemove', attemptPlay);
@@ -162,114 +80,114 @@
         <div class="timestamp">Live Listings • Updated March 2026</div>
     </div>
 
-    <div class="section-label">Human Resources & People Ops</div>
+    <div class="section-label">Strategy & Leadership</div>
     <div class="jobs-row">
-        <div class="job-card-fixed" style="border-top: 4px solid var(--accent);">
+        <div class="job-card-fixed" style="border-top: 4px solid var(--airtel);">
             <div class="card-header">
-                <span class="role-badge" style="color: var(--accent);">HRBP</span>
-                <h2>HR Business Partner</h2>
-                <div class="loc"><i class="fas fa-map-marker-alt"></i> Kochi, Kerala | Malayalam Mandate</div>
+                <span class="role-badge" style="color: var(--airtel);">Airtel Digital</span>
+                <h2>Strategy Manager</h2>
+                <div class="loc"><i class="fas fa-tower-cell"></i> Gurugram | On-site</div>
             </div>
             <div class="job-body">
-                <h3><i class="fas fa-users"></i> Role Overview</h3>
+                <h3><i class="fas fa-chess"></i> Core Focus</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> 4-6 years experience in HRBP</li>
-                    <li><i class="fas fa-check"></i> Malayalam language proficiency mandatory</li>
-                    <li><i class="fas fa-check"></i> MBA / PGDM in HR required</li>
+                    <li><i class="fas fa-check"></i> Drive CIO Digital Engineering Office initiatives</li>
+                    <li><i class="fas fa-check"></i> Engineering performance metrics (Cost/Quality)</li>
+                    <li><i class="fas fa-check"></i> Exp with AWS, Jira, and GCP preferred</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/view/4384482765" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply on LinkedIn →</a>
-        </div>
-
-        <div class="job-card-fixed" style="border-top: 4px solid var(--accent);">
-            <div class="card-header">
-                <span class="role-badge" style="color: var(--accent);">Training</span>
-                <h2>Training Manager</h2>
-                <div class="loc"><i class="fas fa-chalkboard-teacher"></i> Gurgaon | Plot 119 Office</div>
-            </div>
-            <div class="job-body">
-                <h3><i class="fas fa-star"></i> Deliverables</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> New hire sales & product training</li>
-                    <li><i class="fas fa-check"></i> Refresher training & call auditing</li>
-                    <li><i class="fas fa-check"></i> 6 Days Work from Office</li>
-                </ul>
-            </div>
-            <a href="https://www.linkedin.com/jobs/view/4384025037" target="_blank" class="apply-btn-wide" style="background: var(--accent);">Apply on LinkedIn →</a>
-        </div>
-    </div>
-
-    <div class="section-label">Finance & Business Strategy</div>
-    <div class="jobs-row">
-        <div class="job-card-fixed" style="border-top: 4px solid var(--primary);">
-            <div class="card-header">
-                <span class="role-badge" style="color: var(--primary);">FP&A</span>
-                <h2>Financial Planning & Analysis</h2>
-                <div class="loc"><i class="fas fa-chart-line"></i> Gurgaon | Corporate Finance</div>
-            </div>
-            <div class="job-body">
-                <h3><i class="fas fa-briefcase"></i> Key Responsibilities</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> CA qualification mandatory</li>
-                    <li><i class="fas fa-check"></i> Partner with leaders for forecasting</li>
-                    <li><i class="fas fa-check"></i> Drive automation via BI tools</li>
-                </ul>
-            </div>
-            <a href="https://www.linkedin.com/jobs/view/4384489370" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
-        </div>
-
-        <div class="job-card-fixed" style="border-top: 4px solid var(--primary);">
-            <div class="card-header">
-                <span class="role-badge" style="color: var(--primary);">Sales</span>
-                <h2>Relationship Manager</h2>
-                <div class="loc"><i class="fas fa-handshake"></i> Navi Mumbai | Insurance Sales</div>
-            </div>
-            <div class="job-body">
-                <h3><i class="fas fa-bullseye"></i> Goal</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Field sales for Health/Term Insurance</li>
-                    <li><i class="fas fa-check"></i> Build long-term customer relations</li>
-                    <li><i class="fas fa-check"></i> Two-wheeler and License required</li>
-                </ul>
-            </div>
-            <a href="https://www.linkedin.com/jobs/view/4384472126" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
-        </div>
-    </div>
-
-    <div class="section-label">Operations & Quality Management</div>
-    <div class="jobs-row">
-        <div class="job-card-fixed" style="border-top: 4px solid var(--blue);">
-            <div class="card-header">
-                <span class="role-badge" style="color: var(--blue);">Quality Assurance</span>
-                <h2>Deputy Manager - QA</h2>
-                <div class="loc"><i class="fas fa-vial"></i> Gurgaon | Leadership Role</div>
-            </div>
-            <div class="job-body">
-                <h3><i class="fas fa-tasks"></i> Focus Area</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Supervise team of Quality Analysts</li>
-                    <li><i class="fas fa-check"></i> Transition batches from NHT to OJT</li>
-                    <li><i class="fas fa-check"></i> Root Cause Analysis (RCA) reporting</li>
-                </ul>
-            </div>
-            <a href="https://www.linkedin.com/jobs/view/4384031616" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4390968195/" target="_blank" class="apply-btn-wide" style="background: var(--airtel);">Apply on LinkedIn →</a>
         </div>
 
         <div class="job-card-fixed" style="border-top: 4px solid var(--blue);">
             <div class="card-header">
-                <span class="role-badge" style="color: var(--blue);">L&D</span>
-                <h2>Process Trainer</h2>
-                <div class="loc"><i class="fas fa-graduation-cap"></i> Hyderabad | Sales Training</div>
+                <span class="role-badge" style="color: var(--blue);">United Airlines</span>
+                <h2>Analyst - Supply Chain Analytics</h2>
+                <div class="loc"><i class="fas fa-plane"></i> Gurugram | Full-time</div>
             </div>
             <div class="job-body">
-                <h3><i class="fas fa-book"></i> Training Scope</h3>
+                <h3><i class="fas fa-code"></i> Requirements</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Train on Product (Term/Investment)</li>
-                    <li><i class="fas fa-check"></i> Soft skills and objection handling</li>
-                    <li><i class="fas fa-check"></i> Fluent in English and Hindi</li>
+                    <li><i class="fas fa-check"></i> Python data analysis & predictive modeling</li>
+                    <li><i class="fas fa-check"></i> SQL & PowerBI/Spotfire dashboards</li>
+                    <li><i class="fas fa-check"></i> 2+ years analytical experience</li>
                 </ul>
             </div>
-            <a href="https://www.linkedin.com/jobs/view/4384033544" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
+            <a href="https://www.linkedin.com/jobs/view/4381468936/" target="_blank" class="apply-btn-wide" style="background: var(--blue);">Apply on LinkedIn →</a>
+        </div>
+    </div>
+
+    <div class="section-label">Finance & MIS</div>
+    <div class="jobs-row">
+        <div class="job-card-fixed" style="border-top: 4px solid var(--pb);">
+            <div class="card-header">
+                <span class="role-badge" style="color: var(--pb);">Policybazaar.com</span>
+                <h2>MIS Analyst</h2>
+                <div class="loc"><i class="fas fa-chart-bar"></i> Gurugram | On-site</div>
+            </div>
+            <div class="job-body">
+                <h3><i class="fas fa-file-invoice-dollar"></i> Key Responsibilities</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Fixed Asset Register (FAR) & Capex reporting</li>
+                    <li><i class="fas fa-check"></i> Audit assistance (Internal & Statutory)</li>
+                    <li><i class="fas fa-check"></i> Expert in Excel (XLOOKUP, Pivot Tables)</li>
+                </ul>
+            </div>
+            <a href="https://www.linkedin.com/jobs/view/4393390455/" target="_blank" class="apply-btn-wide" style="background: var(--pb);">Apply on LinkedIn →</a>
+        </div>
+
+        <div class="job-card-fixed" style="border-top: 4px solid var(--oak);">
+            <div class="card-header">
+                <span class="role-badge" style="color: var(--oak);">OakNorth Bank</span>
+                <h2>Intern - Internal Audit</h2>
+                <div class="loc"><i class="fas fa-search-dollar"></i> Gurugram | 11 Months</div>
+            </div>
+            <div class="job-body">
+                <h3><i class="fas fa-user-graduate"></i> Qualifications</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> CA Intermediate completed</li>
+                    <li><i class="fas fa-check"></i> Financial statement & control analysis</li>
+                    <li><i class="fas fa-check"></i> Hands-on audit & reporting</li>
+                </ul>
+            </div>
+            <a href="https://www.linkedin.com/jobs/view/4391639016/" target="_blank" class="apply-btn-wide" style="background: var(--oak);">Apply on LinkedIn →</a>
+        </div>
+    </div>
+
+    <div class="section-label">Operations & Business Analysis</div>
+    <div class="jobs-row">
+        <div class="job-card-fixed" style="border-top: 4px solid var(--purple);">
+            <div class="card-header">
+                <span class="role-badge" style="color: var(--purple);">NatWest Group</span>
+                <h2>Business Analyst, AVP</h2>
+                <div class="loc"><i class="fas fa-landmark"></i> Gurugram | AVP Level</div>
+            </div>
+            <div class="job-body">
+                <h3><i class="fas fa-project-diagram"></i> Skills Required</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> BA Certification (BAX, CBAP, etc.)</li>
+                    <li><i class="fas fa-check"></i> Strategic principles & stakeholder management</li>
+                    <li><i class="fas fa-check"></i> User Acceptance Testing (UAT) facilitation</li>
+                </ul>
+            </div>
+            <a href="https://www.linkedin.com/jobs/view/4392016483/" target="_blank" class="apply-btn-wide" style="background: var(--purple);">Apply on LinkedIn →</a>
+        </div>
+
+        <div class="job-card-fixed" style="border-top: 4px solid var(--primary);">
+            <div class="card-header">
+                <span class="role-badge" style="color: var(--primary);">Accredian</span>
+                <h2>Business Operations - Intern</h2>
+                <div class="loc"><i class="fas fa-laptop-code"></i> Gurugram | Hybrid</div>
+            </div>
+            <div class="job-body">
+                <h3><i class="fas fa-sync"></i> Daily Tasks</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i> Finance support & vendor management</li>
+                    <li><i class="fas fa-check"></i> CRM lead allocation & marketing automation</li>
+                    <li><i class="fas fa-check"></i> Hosting webinars & cross-team ops</li>
+                </ul>
+            </div>
+            <a href="https://www.linkedin.com/jobs/view/4392088689/" target="_blank" class="apply-btn-wide">Apply on LinkedIn →</a>
         </div>
     </div>
 </div>
