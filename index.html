@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debarghya Kundu | Analyst Portfolio</title>
+    <title>Debarghya Kundu | Data Science Analyst Portfolio</title>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSB6BDM6JR"></script>
     <script>
@@ -13,413 +13,1082 @@
       gtag('config', 'G-E7JJW7PZ36');
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #f36f06;
-            --bg: #0d0f12;
-            --card: #161a1f;
-            --text: #ffffff;
-            --text-dim: #94a3b8;
-            --radius: 24px;
-            --accent: #10b981;
+            --accent: #ff6b00;
+            --accent-glow: rgba(255, 107, 0, 0.25);
+            --bg-deep: #05070a;
+            --surface: #0d1117;
+            --surface-glass: rgba(13, 17, 23, 0.7);
+            --surface-hover: #161d26;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 107, 0, 0.4);
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --success: #2ea043;
+            --radius-lg: 24px;
+            --radius-md: 16px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        body { background: var(--bg); color: var(--text); padding: 20px; line-height: 1.6; }
-
-        .container { max-width: 1250px; margin: 0 auto; display: flex; flex-direction: column; gap: 25px; }
-
-        /* --- Scroll Offset Fix --- */
-        #experience, #skills, #projects, #contact {
-            scroll-margin-top: 90px;
-        }
-        .marquee {
-    display: flex;
-    overflow: hidden;
-    gap: 40px;
-    padding: 20px 0;
-    opacity: 0.5;
-    user-select: none;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-.marquee-content {
-    display: flex;
-    gap: 40px;
-    animation: scroll 10s linear infinite;
-    white-space: nowrap;
-}
-@keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
-
-        /* --- Utility Nav --- */
-        .utility-bar {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 12px 25px; background: var(--card); border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.05); position: sticky; top: 10px; z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-        .user-chip { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
-        .user-chip img { width: 35px; height: 35px; border-radius: 50%; border: 2px solid var(--primary); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         
-        /* New Nav Links Styling */
-        .nav-links { display: flex; gap: 20px; }
-        .nav-item { 
-            color: var(--text-dim); 
-            text-decoration: none; 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            transition: 0.3s; 
+        body { 
+            background-color: var(--bg-deep); 
+            color: var(--text-main); 
+            padding: 40px 20px; 
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(255, 107, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(46, 160, 67, 0.03) 0%, transparent 40%);
+            background-attachment: fixed;
         }
-        .nav-item:hover { color: var(--primary); }
 
-        .social-nav { display: flex; gap: 10px; }
-        .icon-btn { 
-            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-            background: rgba(255,255,255,0.03); border-radius: 50%; color: var(--text-dim);
-            text-decoration: none; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05);
+        .layout-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
-        .icon-btn:hover { background: var(--primary); color: white; transform: translateY(-3px); }
-        
 
-        /* --- Hero --- */
-        .hero {
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;
-            background: var(--card); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.03);
+        /* --- NAVIGATION BAR --- */
+        .bento-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            padding: 14px 28px;
+            border-radius: 100px;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-        .hero p { color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem; border-left: 3px solid var(--primary); padding-left: 20px; }
-        .profile-halo {
-            width: 280px; height: 280px; margin: 0 auto; position: relative;
-            border-radius: 50%; padding: 10px; border: 2px dashed var(--primary);
+
+        .nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
         }
-        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; transition: 0.5s; }
 
-        /* --- Experience Styles --- */
-        .exp-header { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; }
-        .company-logo {
-            width: 48px; height: 48px; background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px; padding: 6px; object-fit: contain; border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .nav-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            object-fit: cover;
         }
-        .exp-item:hover .company-logo { border-color: var(--primary); background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
-        .exp-title-group { display: flex; flex-direction: column; }
-        .exp-item h3 { margin-bottom: 2px; font-size: 1.2rem; color: #fff; }
-        .exp-item b { margin-bottom: 12px; color: var(--primary); font-size: 0.8rem; display: block; letter-spacing: 1px; }
 
-        /* --- Dashboard --- */
-        .dashboard-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 25px; }
-        .panel { background: var(--card); padding: 35px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.03); height: 100%; }
-        .panel-header { font-size: 0.75rem; letter-spacing: 3px; color: var(--primary); text-transform: uppercase; margin-bottom: 30px; display: block; font-weight: 800; }
-
-        /* --- Expanded Experience --- */
-        .exp-tree { position: relative; padding-left: 30px; border-left: 2px solid rgba(255,255,255,0.05); }
-        .exp-item { position: relative; margin-bottom: 45px; }
-        .exp-item::before { 
-            content: ''; position: absolute; left: -39px; top: 5px; 
-            width: 16px; height: 16px; background: var(--primary); border-radius: 50%; 
-            box-shadow: 0 0 10px var(--primary);
+        .nav-profile span {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-size: 0.95rem;
         }
-        .exp-item ul { list-style: none; }
-        .exp-item li { font-size: 0.88rem; color: var(--text-dim); margin-bottom: 8px; position: relative; padding-left: 15px; }
-        .exp-item li::before { content: '→'; position: absolute; left: 0; color: var(--primary); }
 
-        /* --- Skills --- */
-        .skill-group { margin-bottom: 25px; }
-        .skill-label { font-size: 0.7rem; color: var(--text-dim); margin-bottom: 10px; display: block; font-weight: 600; }
-        .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { 
-            background: rgba(255,255,255,0.03); padding: 8px 14px; border-radius: 10px; 
-            font-size: 0.75rem; color: var(--text-dim); border: 1px solid transparent; transition: 0.3s;
+        .nav-links {
+            display: flex;
+            gap: 24px;
         }
-        .tag:hover { border-color: var(--primary); color: white; transform: translateY(-3px); }
 
-        /* --- Implementation Projects --- */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-        .project-card { background: rgba(255,255,255,0.02); padding: 30px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
-        .project-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .impl-box { background: rgba(0,0,0,0.3); padding: 18px; border-radius: 18px; margin-top: 20px; font-size: 0.82rem; border-left: 3px solid var(--accent); }
-        .impl-box div { margin-bottom: 8px; }
-        .impl-box b { color: var(--accent); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
 
-        /* --- Stats --- */
-        .ach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .ach-box { background: var(--card); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.03); text-align: center; }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-        @media (max-width: 900px) { 
-            .hero, .dashboard-grid, .ach-grid { grid-template-columns: 1fr; } 
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* --- BENTO GRID SYSTEM --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .bento-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* --- HERO CELL --- */
+        .hero-cell {
+            grid-column: span 8;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(135deg, var(--surface) 0%, #111822 100%);
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(46, 160, 67, 0.1);
+            border: 1px solid rgba(46, 160, 67, 0.3);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--success);
+            width: fit-content;
+            margin-bottom: 24px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--success);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px var(--success); }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .hero-cell h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero-cell h1 span {
+            color: var(--accent);
+        }
+
+        .hero-cell p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 26px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px var(--accent-glow);
+            transition: all 0.2s ease;
+        }
+
+        .btn-main:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-sec {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 14px 26px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-sec:hover {
+            border-color: var(--accent);
+            background: rgba(255, 107, 0, 0.05);
+        }
+
+        /* --- PROFILE AVATAR CELL --- */
+        .avatar-cell {
+            grid-column: span 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, var(--surface) 0%, #131a24 100%);
+        }
+
+        .avatar-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--accent), transparent);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .avatar-cell h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .avatar-cell p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* --- STATS GRID --- */
+        .stats-grid {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+        }
+
+        .stat-num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 6px;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        /* --- EXPERIENCE & RIGHT COLUMN (SKILLS + EDUCATION) --- */
+        .experience-cell { grid-column: span 7; }
+        .right-column-cell { grid-column: span 5; display: flex; flex-direction: column; gap: 24px; }
+
+        .section-header {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .glowing-timeline {
+            position: relative;
+            padding-left: 36px;
+            border-left: 2px solid rgba(255, 107, 0, 0.25);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--border-glow);
+            background: rgba(255, 107, 0, 0.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .timeline-item::before {
+            content: '➔';
+            position: absolute;
+            left: -47px;
+            top: 22px;
+            width: 28px;
+            height: 28px;
+            background: var(--surface);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 900;
+            box-shadow: 0 0 15px var(--accent), inset 0 0 5px var(--accent-glow);
+        }
+
+        .timeline-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .company-logo-box {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            object-fit: contain;
+        }
+
+        .timeline-titles h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .timeline-titles span {
+            font-size: 0.72rem;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .timeline-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .timeline-list li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 16px;
+            line-height: 1.5;
+        }
+
+        .timeline-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .skill-category {
+            background: rgba(255,255,255,0.015);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: var(--radius-md);
+        }
+
+        .skill-category-title {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent);
+            color: #fff;
+            background: rgba(255, 107, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .skill-pill.featured {
+            border-left: 2px solid var(--accent);
+            color: #fff;
+        }
+
+        /* --- EDUCATION CARD STYLES --- */
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .edu-item {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .edu-item:hover {
+            border-color: var(--accent);
+            background: rgba(255, 107, 0, 0.02);
+            transform: translateY(-2px);
+        }
+
+        .edu-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .edu-info p {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .edu-score {
+            text-align: right;
+        }
+
+        .edu-score .score-val {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .edu-score .score-year {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* --- ACHIEVEMENTS CELL --- */
+        .achievements-grid {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+            background: var(--surface-hover);
+        }
+
+        /* --- MINI WIZARD SHAKING PREVIEW THUMBNAIL --- */
+        .preview-thumb-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            flex-shrink: 0;
+            background: #000;
+            position: relative;
+        }
+
+        .preview-thumb-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        /* Shaking animation to grab attention */
+        @keyframes subtle-shake {
+            0% { transform: rotate(0deg) scale(1); }
+            20% { transform: rotate(-3deg) scale(1.05); }
+            40% { transform: rotate(3deg) scale(1.05); }
+            60% { transform: rotate(-2deg) scale(1.02); }
+            80% { transform: rotate(2deg) scale(1.02); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
+        .achievement-card:hover .preview-thumb-box img {
+            animation: subtle-shake 0.5s ease infinite;
+        }
+
+        .achievement-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 107, 0, 0.1);
+            color: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 107, 0, 0.2);
+        }
+
+        .achievement-content h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .achievement-content p {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* --- CUTE CUSTOM DIALOG / MODAL POPUP (UNCUT IMAGES) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 7, 10, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cute-dialog-box {
+            background: linear-gradient(135deg, var(--surface) 0%, #161d26 100%);
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            padding: 30px;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(255, 107, 0, 0.2);
+            transform: scale(0.8) translateY(20px);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-overlay.active .cute-dialog-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .cute-dialog-box img {
+            width: 100%;
+            height: auto;
+            max-height: 50vh;
+            object-fit: contain;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            background: #000;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .cute-dialog-box h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .cute-dialog-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .close-dialog-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px var(--accent-glow);
+            transition: all 0.2s ease;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .close-dialog-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* --- FOOTER CELL --- */
+        .footer-cell {
+            grid-column: span 12;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-cell p.footer-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .footer-email-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 800;
+            transition: color 0.2s;
+        }
+
+        .footer-email-link:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            opacity: 0.5;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-cell, .avatar-cell, .experience-cell, .right-column-cell { grid-column: span 12; }
+            .stats-grid, .achievements-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .bento-nav { padding: 10px 18px; }
             .nav-links { display: none; }
+            body { padding: 10px; }
+            .hero-cell h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <nav class="utility-bar">
-        <a href="#" class="user-chip">
-            <img src="images\portfolio image.jpg" alt="DK">
-            <span><b>Debarghya</b> Kundu</span>
+<div class="layout-container">
+
+    <nav class="bento-nav">
+        <a href="#" class="nav-profile">
+            <img src="images/portfolio image.jpg" alt="Debarghya Kundu">
+            <span>Debarghya Kundu</span>
         </a>
 
         <div class="nav-links">
-            <a href="#experience" class="nav-item">Experience</a>
-            <a href="#skills" class="nav-item">Skills</a>
-            <a href="#projects" class="nav-item">Projects</a>
-            <a href="#contact" class="nav-item">Contact</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
         </div>
 
-        <div class="social-nav">
-            <a href="https://github.com/debarghyakundu123" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/debarghya-kundu-93969018b/" target="_blank" class="icon-btn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://leetcode.com/u/debarghyakundu/" target="_blank" class="icon-btn"><i class="fas fa-code"></i></a>
-            <div class="icon-btn" onclick="copyEmail()" style="cursor:pointer; background: var(--primary); color: white;"><i class="fas fa-envelope"></i></div>
+        <div class="nav-actions">
+            <a href="https://github.com/debarghyakundu123" target="_blank" class="nav-btn" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/debarghya-kundu-93969018b/" target="_blank" class="nav-btn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://leetcode.com/u/debarghyakundu/" target="_blank" class="nav-btn" title="LeetCode"><i class="fas fa-code"></i></a>
+            <button class="nav-btn" onclick="copyEmail()" title="Copy Email"><i class="fas fa-envelope"></i></button>
         </div>
     </nav>
 
-
-    <section class="hero">
-        <div>
-            <span style="color:var(--primary); letter-spacing: 3px; font-size: 0.75rem; font-weight: 800;">INSIGHT ARCHITECT</span>
-            <h1>Data-Driven <br> Impact at Scale</h1>
-            <p>IT Undergraduate at MSIT. Driving revenue growth through ML automation, exploratory analysis, and product-oriented data strategy.</p>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <a href="#projects" class="tag" style="background: var(--primary); color: white; padding: 12px 25px; font-weight: 600; text-decoration: none; border-radius: 12px;">View Implementations</a>
-            
-            <a href="https://drive.google.com/uc?export=download&id=1WRQx_t4karSYaD3zJjohQY3qpDL1Wous" target="_blank" class="tag" style="padding: 12px 25px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;">Download Resume</a>
-            
-            <a href="article.html" class="tag" style="border: 1px solid var(--primary); color: var(--primary); padding: 12px 25px; font-weight: 600; text-decoration: none; border-radius: 12px; display: flex; align-items: center; gap: 8px;">
-                <i class="fas fa-pen-nib"></i> Read My Notes
-            </a>
+    <div class="bento-grid">
+        
+        <div class="bento-card hero-cell">
+            <div>
+   
+                <h1>Automating Reports & <br>Driving <span>Data Strategy</span></h1>
+                <p>Data Science Analyst | Python, SQL , ML , Power BI |</br> Analyst @ Policybazaar.Com</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="#achievements" class="btn-main">View Achievements <i class="fas fa-arrow-right"></i></a>
+                <a href="https://drive.google.com/uc?export=download&id=1WRQx_t4karSYaD3zJjohQY3qpDL1Wous" target="_blank" class="btn-sec">Download Resume</a>
+            </div>
         </div>
+
+        <div class="bento-card avatar-cell">
+            <div class="avatar-container">
+                <img src="images/portfolio image.jpg" alt="Debarghya Kundu">
+            </div>
+            <h3>Debarghya Kundu</h3>
         </div>
-        <div class="profile-halo">
-            <img src="images\portfolio image.jpg" alt="Debarghya" class="profile-img">
+
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-num">40+ Hrs</div>
+            <div class="stat-label">Monthly Automation Saved</div>
         </div>
-    </section>
-    <div class="ach-grid" style="margin-bottom: 25px;">
-    <div class="ach-box" style="padding: 15px;">
-        <span style="color: var(--primary); font-weight: 800; font-size: 1.5rem;">18%</span>
-        <p style="font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase;">Retention Boost</p>
+        <div class="stat-card">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Data Sets Pipeline Processed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">9.02 CGPA</div>
+            <div class="stat-label">Academic Excellence ( MSIT )</div>
+        </div>
     </div>
-    <div class="ach-box" style="padding: 15px;">
-        <span style="color: var(--primary); font-weight: 800; font-size: 1.5rem;">50K+</span>
-        <p style="font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase;">Transactions Analyzed</p>
-    </div>
-    <div class="ach-box" style="padding: 15px;">
-        <span style="color: var(--primary); font-weight: 800; font-size: 1.5rem;">40%</span>
-        <p style="font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase;">ETL Time Reduced</p>
-    </div>
-</div>
-<div class="marquee">
-    <div class="marquee-content">
-        <span><i class="fab fa-python"></i> PYTHON</span>
-        <span><i class="fas fa-database"></i> SQL</span>
-        <span><i class="fas fa-chart-bar"></i> TABLEAU</span>
-        <span><i class="fas fa-cloud"></i> AWS</span>
-        <span><i class="fas fa-brain"></i> SCIKIT-LEARN</span>
-        <span><i class="fab fa-docker"></i> DOCKER</span>
-        <span><i class="fab fa-python"></i> PYTHON</span>
-        <span><i class="fas fa-database"></i> SQL</span>
-        <span><i class="fas fa-chart-bar"></i> TABLEAU</span>
-        <span><i class="fas fa-cloud"></i> AWS</span>
-        <span><i class="fas fa-brain"></i> SCIKIT-LEARN</span>
-        <span><i class="fab fa-docker"></i> DOCKER</span>
-    </div>
-</div>
 
-
-
-    <div class="dashboard-grid">
-        <div class="panel" id="experience">
-            <span class="panel-header">Experience / Internship</span>
-            <div class="exp-tree">
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <img src="images\pblogo.avif" alt="Policybazaar" class="company-logo">
-                        <div class="exp-title-group">
-                            <h3>Executive Data Analyst | Policybazaar</h3>
-                            <b>SEPT 2025 - PRESENT</b>
+    <div class="bento-grid" id="experience">
+        
+        <div class="bento-card experience-cell">
+            <div class="section-header">Professional Experience</div>
+            <div class="glowing-timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-top">
+                        <img src="images/pblogo.avif" alt="Policybazaar" class="company-logo-box">
+                        <div class="timeline-titles">
+                            <h3>Data Science Analyst | Policybazaar</h3>
+                            <span>SEP 2025 - PRESENT • GURUGRAM, HARYANA</span>
                         </div>
                     </div>
-                    <ul>
-                        <li>Supporting Health Insurance Analytics by deriving business metrics from high-velocity policy datasets.</li>
-                        <li>Built ML data segmentation models to target high-value cohorts, boosting retention efficiency by 18%.</li>
-                        <li>Architected Python pipelines (Pandas/NumPy) for ETL, reducing manual data reporting time by 40%.</li>
+                    <ul class="timeline-list">
+                        <li>Supporting the Health Insurance Analytics team by analyzing large-scale customer and policy datasets to derive business insights and performance metrics.</li>
+                        <li>Collaborated with cross-functional stakeholders to convert statistical findings into strategic decisions, supporting faster execution.</li>
+                        <li>Applied anomaly detection, rigorous data quality checks, and business logic to align insights with customer experience and stakeholder expectations.</li>
+                        <li><b>Automated Reporting Hub:</b> Built a production-grade Streamlit and Python application using Pandas and custom backend architectures serving 10 to 12 daily users, consolidating 5 to 6 daily reports, eliminating 2 to 3-hour manual workflows, and saving over 80+ hours monthly.</li>
+                        <li><b>Endorsement Analytics Dashboard:</b> Developed a comprehensive Power BI dashboard tracking multi-year historical policy endorsements (spanning 2 to 3 years) to pinpoint agent error patterns and optimize overall operational accuracy.</li>
                     </ul>
                 </div>
 
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <img src="images\upgradlogo.png" alt="UpGrad" class="company-logo">
-                        <div class="exp-title-group">
+                <div class="timeline-item">
+                    <div class="timeline-top">
+                        <img src="images/upgradlogo.png" alt="UpGrad" class="company-logo-box">
+                        <div class="timeline-titles">
                             <h3>Product Quality Analyst Intern | UpGrad</h3>
-                            <b>APRIL 2025 - JULY 2025</b>
+                            <span>APRIL 2025 - JUL 2025 • REMOTE</span>
                         </div>
                     </div>
-                    <ul>
-                        <li>Audited 600+ user interaction hours to resolve 30+ high-impact UX friction points.</li>
-                        <li>Designed dynamic KPI dashboards resulting in a 25% reduction in student complaints.</li>
-                        <li>Applied anomaly detection and data quality checks to align insights with stakeholder experience goals.</li>
+                    <ul class="timeline-list">
+                        <li>Audited course content and LMS workflows to identify bugs, systemic inconsistencies, and friction zones.</li>
+                        <li>Provided structured feedback on marketing communications to ensure complete alignment with core course content.</li>
+                        <li>Tracked and reported high-impact UI/UX issues and navigation blocks to boost overall learner retention.</li>
+                        <li>Collaborated directly with product, content, and marketing departments to expedite platform enhancements.</li>
                     </ul>
                 </div>
 
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <img src="images\quantiumlogo.jpg" alt="Quantium" class="company-logo">
-                        <div class="exp-title-group">
+                <div class="timeline-item">
+                    <div class="timeline-top">
+                        <img src="images/quantiumlogo.jpg" alt="Quantium" class="company-logo-box">
+                        <div class="timeline-titles">
                             <h3>Data Analytics Research Intern | Quantium</h3>
-                            <b>AUG 2024 - SEPT 2024</b>
+                            <span>AUG 2024 - SEP 2024 • REMOTE</span>
                         </div>
                     </div>
-                    <ul>
-                        <li>Engineered a pipeline to process 50K+ transactions for large-scale trend and behavior reporting.</li>
-                        <li>Identified 3 actionable purchasing patterns via EDA, driving a 15% increase in Average Order Value (AOV).</li>
-                        <li>Translated complex statistical findings into strategic roadmaps for stakeholder decision-making.</li>
+                    <ul class="timeline-list">
+                        <li>Processed 50K+ structured transactions through an optimized Python pipeline for large-scale trend and behavior reporting.</li>
+                        <li>Uncovered 3 critical purchasing patterns using exploratory data analysis (EDA), leading directly to a 15% increase in Average Order Value (AOV).</li>
+                        <li>Translated complex statistical evaluations into practical executive frameworks for business decision-makers.</li>
                     </ul>
                 </div>
+
             </div>
         </div>
 
-        <div class="panel" id="skills">
-            <span class="panel-header">Technical Skills & Stack</span>
+        <div class="right-column-cell">
             
-            
-            <div class="skill-group">
-                <span class="skill-label"><i class="fas fa-terminal" style="margin-right: 8px;"></i> CORE PROGRAMMING</span>
-                <div class="tag-cloud">
-                    <div class="tag" style="border-left: 2px solid var(--primary);">Python (Expert)</div>
-                    <div class="tag">SQL (PostgreSQL/MySQL)</div>
-                    <div class="tag">C++</div>
-                    <div class="tag">Data Structures & Algos</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <span class="skill-label"><i class="fas fa-microchip" style="margin-right: 8px;"></i> MACHINE LEARNING & AI</span>
-                <div class="tag-cloud">
-                    <div class="tag">Scikit-learn</div>
-                    <div class="tag">TensorFlow</div>
-                    <div class="tag">PyTorch</div>
-                    <div class="tag">NLP (Llama-3/GPT)</div>
-                    <div class="tag">Feature Engineering</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <span class="skill-label"><i class="fas fa-chart-pie" style="margin-right: 8px;"></i> ANALYTICS & BI</span>
-                <div class="tag-cloud">
-                    <div class="tag">Pandas / NumPy</div>
-                    <div class="tag">Tableau</div>
-                    <div class="tag">Power BI</div>
-                    <div class="tag">Exploratory Data Analysis</div>
-                    <div class="tag">A/B Testing</div>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <span class="skill-label"><i class="fas fa-layer-group" style="margin-right: 8px;"></i> INFRA & DEPLOYMENT</span>
-                <div class="tag-cloud">
-                    <div class="tag">AWS</div>
-                    <div class="tag">Git/GitHub</div>
-                    <div class="tag">Streamlit</div>
-                    <div class="tag">Docker (Basics)</div>
-                    <div class="tag">Google Colab</div>
-                </div>
-            </div>
-
-            <div class="skill-group" style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;">
-                <span class="skill-label">ACADEMIC FOUNDATION</span>
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                    <div>
-                        <p style="font-size: 0.85rem; color: #fff; margin-bottom: 2px; font-weight: 600;">Maharaja Surajmal Institute of Technology</p>
-                        <p style="font-size: 0.75rem; color: var(--text-dim);">B.Tech Information Technology • 2022-26</p>
+            <div class="bento-card" style="padding: 30px;" id="skills">
+                <div class="section-header">Technical Stack</div>
+                
+                <div class="skill-category" style="margin-bottom: 14px;">
+                    <div class="skill-category-title"><i class="fas fa-terminal"></i> PROGRAMMING & LANGUAGES</div>
+                    <div class="skill-tags">
+                        <span class="skill-pill featured">Python (Expert)</span>
+                        <span class="skill-pill">SQL (PostgreSQL / MySQL)</span>
+                        <span class="skill-pill">C++</span>
+                        <span class="skill-pill">Data Structures & Algos</span>
                     </div>
-                    <div style="text-align: right;">
-                        <span style="display: block; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 1px;">AGGREGATE</span>
-                        <span style="color: var(--primary); font-weight: 800; font-size: 1.1rem;">8.91 CGPA</span>
+                </div>
+
+                <div class="skill-category" style="margin-bottom: 14px;">
+                    <div class="skill-category-title"><i class="fas fa-chart-line"></i> DATA ANALYSIS & BI</div>
+                    <div class="skill-tags">
+                        <span class="skill-pill">Pandas / NumPy</span>
+                        <span class="skill-pill">Power BI</span>
+                        <span class="skill-pill">Advanced Excel</span>
+                        <span class="skill-pill">Exploratory Data Analysis</span>
+                        <span class="skill-pill">Anomaly Detection</span>
+                    </div>
+                </div>
+
+                <div class="skill-category" style="margin-bottom: 14px;">
+                    <div class="skill-category-title"><i class="fas fa-microchip"></i> MACHINE LEARNING & AI</div>
+                    <div class="skill-tags">
+                        <span class="skill-pill">Scikit-learn</span>
+                        <span class="skill-pill">LangChain</span>
+                        <span class="skill-pill">LLM Integrations</span>
+                        <span class="skill-pill">Feature Engineering</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title"><i class="fas fa-server"></i> TOOLS & INFRASTRUCTURE</div>
+                    <div class="skill-tags">
+                        <span class="skill-pill">Streamlit</span>
+                        <span class="skill-pill">AWS (Basics)</span>
+                        <span class="skill-pill">Git / GitHub</span>
                     </div>
                 </div>
             </div>
+
+<div class="bento-card" style="padding: 30px;" id="education">
+    <div class="section-header">Education</div>
+    <div class="education-list">
+        
+        <div class="edu-item" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div class="edu-info" style="flex: 1;">
+                <h4>B.Tech in Information Technology</h4>
+                <p>Maharaja Surajmal Institute of Technology (MSIT),New Delhi</p>
+            </div>
+            <div class="edu-score" style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
+                <div class="preview-thumb-box" style="width: 50px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0;" onclick="openModal('images/degree.jpg', 'Provisional Certificate', '')">
+                    <img src="images/degree.jpg" alt="Degree Preview" style="width: 100%; height: 100%; object-fit: cover; animation: none !important; transform: none !important;">
+                </div>
+                <div style="text-align: right;">
+                    <div class="score-val">9.02 CGPA</div>
+                    <div class="score-year">2022 – 2026</div>
+                </div>
+            </div>
+        </div>
+
+                    <div class="edu-item">
+                        <div class="edu-info">
+                            <h4>Class 12th (Senior Secondary)</h4>
+                            <p>KV No.3 Delhi Cantt,New Delhi</p>
+                        </div>
+                        <div class="edu-score">
+                            <div class="score-val">93%</div>
+                            <div class="score-year">2022</div>
+                        </div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-info">
+                            <h4>Class 10th (Secondary)</h4>
+                            <p>KV Sunjuwan Jammu, Jammu & Kashmir</p>
+                        </div>
+                        <div class="edu-score">
+                            <div class="score-val">91%</div>
+                            <div class="score-year">2020</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bento-grid" id="achievements">
+        <div class="bento-card" style="grid-column: span 12; padding: 30px;">
+            <div class="section-header">Certificates & Recognition</div>
+            <div class="achievements-grid">
+                
+                <div class="achievement-card" onclick="openModal('images/web_wizards.jpg', 'Web Wizards Recognition', 'Awarded for exceptional performance, 3rd / 30 Teams Avensis Tech Fest MSIT - Web Wizard.')">
+                    <div class="preview-thumb-box">
+                        <img src="images/web_wizards.jpg" alt="Web Wizards Thumbnail">
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Web Wizards</h4>
+                        <p>Click to view certificate & details</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" onclick="openModal('images/good_work.jpg', 'Achievement for Good Work', 'Recognized and appreciated for dedicated performance, operational excellence, and delivery of impactful business deliverables.')">
+                    <div class="preview-thumb-box">
+                        <img src="images/good_work.jpg" alt="Good Work Thumbnail">
+                    </div>
+                    <div class="achievement-content">
+                        <h4>Recognition For Good Performance</h4>
+                        <p>Click to view certificate & details</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="achievement-content">
+                        <h4>200+ DSA Problems</h4>
+                        <p>Optimization & Complexity Focus</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                    <div class="achievement-content">
+                        <h4>Hackathon Finalist</h4>
+                        <p>Top 10 out of 40 Teams (Veersa)</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <div class="panel" id="projects">
-        <span class="panel-header">System Implementations & Impact</span>
-        <div class="project-grid">
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 style="color:var(--primary)">ReAdmitIQ</h3>
-                    <span style="font-size: 0.6rem; background: rgba(243, 111, 6, 0.1); padding: 4px 8px; border-radius: 5px;">ML + LLM</span>
-                </div>
-                <div class="impl-box">
-                    <div><b>Problem:</b> Inefficient clinical readmission risk assessment.</div>
-                    <div><b>Solution:</b> Random Forest classifier + Llama-3 empathetic report generation.</div>
-                    <div><b>Impact:</b> Automated patient risk profiling with 1-click PDF export.</div>
-                </div>
-                <a href="https://readmissionsprediction.netlify.app/splashs.html" target="_blank" style="color:var(--primary); font-size: 0.8rem; text-decoration: none; display: block; margin-top: 20px; font-weight: 600;">Launch Production Instance →</a>
-            </div>
-
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 style="color:var(--primary)">AskMe AI</h3>
-                    <span style="font-size: 0.6rem; background: rgba(243, 111, 6, 0.1); padding: 4px 8px; border-radius: 5px;">GROQ + LLAMA 3</span>
-                </div>
-                <div class="impl-box">
-                    <div><b>Problem:</b> High latency in RAG-based search queries.</div>
-                    <div><b>Solution:</b> Real-time Llama-3 chatbot using Groq for accelerated inference.</div>
-                    <div><b>Impact:</b> Achieved 70% faster response rates for 25+ daily active users.</div>
-                </div>
-                <a href="https://askmeaiyoursmartchat.streamlit.app/" target="_blank" style="color:var(--primary); font-size: 0.8rem; text-decoration: none; display: block; margin-top: 20px; font-weight: 600;">Launch Production Instance →</a>
-            </div>
-
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <h3 style="color:var(--primary)">News Analyzer</h3>
-                    <span style="font-size: 0.6rem; background: rgba(243, 111, 6, 0.1); padding: 4px 8px; border-radius: 5px;">RAG + GPT-3.5</span>
-                </div>
-                <div class="impl-box">
-                    <div><b>Problem:</b> Manual extraction of trends from 100+ daily articles.</div>
-                    <div><b>Solution:</b> Generative AI summarization pipeline using LangChain.</div>
-                    <div><b>Impact:</b> Reduced manual research effort by 80% via automated workflows.</div>
-                </div>
-                <a href="https://news-analysis--tool.streamlit.app/" target="_blank" style="color:var(--primary); font-size: 0.8rem; text-decoration: none; display: block; margin-top: 20px; font-weight: 600;">Launch Production Instance →</a>
-            </div>
-        </div>
+    <div class="bento-card footer-cell" id="contact">
+        <p class="footer-tagline">Let's Build Something Together</p>
+        <a href="mailto:debarghyakundu123@gmail.com" class="footer-email-link">debarghyakundu123@gmail.com</a>
+        <p class="footer-copy">© 2026 Debarghya Kundu. Crafted with Bento UI & Precision.</p>
     </div>
 
-    <div class="ach-grid">
-        <div class="ach-box">
-            <i class="fas fa-award" style="color:var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-            <h3>3rd / 30 Teams</h3>
-            <p style="font-size: 0.75rem; color: var(--text-dim);">Avensis Tech Fest MSIT - Web Wizard</p>
-        </div>
-        <div class="ach-box">
-            <i class="fas fa-laptop-code" style="color:var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-            <h3>200+ DSA Problems</h3>
-            <p style="font-size: 0.75rem; color: var(--text-dim);">Optimization & Complexity Focus</p>
-        </div>
-        <div class="ach-box">
-            <i class="fas fa-fire" style="color:var(--primary); font-size: 1.5rem; margin-bottom: 15px;"></i>
-            <h3>Finalist (Top 10)</h3>
-            <p style="font-size: 0.75rem; color: var(--text-dim);">Veersa Hackathon Selection</p>
-        </div>
-    </div>
+</div>
 
-<footer id="contact" style="text-align: center; color: var(--text-dim); padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.05);">
-    <p style="letter-spacing: 2px; font-size: 0.7rem; margin-bottom: 15px;">LET'S BUILD THE FUTURE OF DATA</p>
-    <a href="mailto:debarghyakundu319@gmail.com" style="color: var(--primary); text-decoration: none; font-size: 1.4rem; font-weight: 800;">debarghyakundu319@gmail.com</a>
-    <p style="margin-top: 25px; opacity: 0.4; font-size: 0.65rem;">&copy; 2026 DEBARGHYA KUNDU // INSIGHT ARCHITECT</p>
-</footer>
+<div class="modal-overlay" id="certificateModal" onclick="closeModal()">
+    <div class="cute-dialog-box" onclick="event.stopPropagation()">
+        <img id="modalImg" src="" alt="Certificate">
+        <h3 id="modalTitle">Title</h3>
+        <p id="modalDesc">Description</p>
+        <button class="close-dialog-btn" onclick="closeModal()">Close Window</button>
+    </div>
 </div>
 
 <script>
+    function openModal(imgSrc, title, desc) {
+        document.getElementById('modalImg').src = imgSrc;
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDesc').innerText = desc;
+        document.getElementById('certificateModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('certificateModal').classList.remove('active');
+    }
+
     function copyEmail() {
-        navigator.clipboard.writeText("debarghyakundu319@gmail.com");
+        navigator.clipboard.writeText("debarghyakundu123@gmail.com");
         alert("Email copied to clipboard!");
     }
 </script>
