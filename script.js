@@ -1,9 +1,26 @@
+// --- COMBINED DOM CONTENT LOADED EVENT ---
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Mobile Check: Remove broken PDF iframes on phones/tablets
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+        document.querySelectorAll('.preview-thumb-box iframe').forEach(iframe => {
+            iframe.remove();
+        });
+    }
+
+    // 2. Calculate and display total experience dynamically
+    calculateTotalExperience();
+});
+
+
 // --- CALCULATE TOTAL EXPERIENCE DYNAMICALLY ---
 function calculateTotalExperience() {
+    // NOTE: JavaScript months are 0-indexed (0 = Jan, 6 = Jul, 7 = Aug, 8 = Sep)
     const workExperiences = [
-        { start: [2024, 7], end: [2024, 8] },   // Quantium: Aug 2024 - Sep 2024
-        { start: [2025, 4], end: [2025, 7] },   // UpGrad: April 2025 - July 2025
-        { start: [2025, 8], end: null }         // Policybazaar: Sep 2025 - Present
+        { start: [2024, 6], end: [2024, 7] },   // Quantium: July 2024 - August 2024 (Index 6 to 7)
+        { start: [2025, 3], end: [2025, 6] },   // UpGrad: April 2025 - July 2025 (Index 3 to 6)
+        { start: [2025, 8], end: null }         // Policybazaar: September 2025 - Present (Index 8 to Present)
     ];
 
     let totalMonths = 0;
@@ -32,9 +49,6 @@ function calculateTotalExperience() {
         expElement.innerText = `${formattedExp}+ Yrs`;
     }
 }
-
-// Run automatically when the page loads
-document.addEventListener("DOMContentLoaded", calculateTotalExperience);
 
 
 // --- MODAL & INTERACTION FUNCTIONS ---
