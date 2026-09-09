@@ -1,9 +1,14 @@
+// --- COMBINED DOM CONTENT LOADED EVENT ---
+document.addEventListener("DOMContentLoaded", function() {
+    calculateTotalExperience();
+});
+
 // --- CALCULATE TOTAL EXPERIENCE DYNAMICALLY ---
 function calculateTotalExperience() {
     const workExperiences = [
-        { start: [2024, 7], end: [2024, 8] },   // Quantium: Aug 2024 - Sep 2024
-        { start: [2025, 4], end: [2025, 7] },   // UpGrad: April 2025 - July 2025
-        { start: [2025, 8], end: null }         // Policybazaar: Sep 2025 - Present
+        { start: [2024, 6], end: [2024, 7] },   // Quantium: July 2024 - August 2024
+        { start: [2025, 3], end: [2025, 6] },   // UpGrad: April 2025 - July 2025
+        { start: [2025, 8], end: null }         // Policybazaar: September 2025 - Present
     ];
 
     let totalMonths = 0;
@@ -33,23 +38,29 @@ function calculateTotalExperience() {
     }
 }
 
-// Run automatically when the page loads
-document.addEventListener("DOMContentLoaded", calculateTotalExperience);
-
-
-// --- MODAL & INTERACTION FUNCTIONS ---
+// --- SINGLE PAGE MODAL (Policybazaar & Quantium) ---
 function openModal(filePath, title, desc) {
     const mediaContainer = document.getElementById('modalMediaContainer');
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalDesc').innerText = desc;
 
-    // Check if the file is a PDF
-    if (filePath.toLowerCase().endsWith('.pdf')) {
-        mediaContainer.innerHTML = `<iframe src="${filePath}" style="width: 100%; height: 450px; border: none; border-radius: 8px;" title="${title}"></iframe>`;
-    } else {
-        mediaContainer.innerHTML = `<img id="modalImg" src="${filePath}" alt="${title}" style="max-width: 100%; height: auto; border-radius: 8px;">`;
-    }
+    mediaContainer.innerHTML = `<img id="modalImg" src="${filePath}" alt="${title}" style="max-width: 100%; height: auto; border-radius: 8px;">`;
+    document.getElementById('certificateModal').classList.add('active');
+}
 
+// --- MULTI-PAGE MODAL (UpGrad - 3 Pages stacked) ---
+function openMultiPageModal(title, desc, imageArray) {
+    const mediaContainer = document.getElementById('modalMediaContainer');
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDesc').innerText = desc;
+
+    let imagesHtml = `<div style="display: flex; flex-direction: column; gap: 15px; max-height: 65vh; overflow-y: auto; width: 100%; padding-right: 5px;">`;
+    imageArray.forEach((imgPath, index) => {
+        imagesHtml += `<img src="${imgPath}" alt="Page ${index + 1}" style="width: 100%; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">`;
+    });
+    imagesHtml += `</div>`;
+
+    mediaContainer.innerHTML = imagesHtml;
     document.getElementById('certificateModal').classList.add('active');
 }
 
