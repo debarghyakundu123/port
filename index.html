@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- 👉 ADD THIS LINE HERE TO CONNECT YOUR CSS -->
+    <!-- Connect your CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,9 +49,8 @@
         
         <div class="bento-card hero-cell">
             <div>
-   
                 <h1>Building Scalable <span>Data Systems</span></h1>
-                <p>Data Science Analyst | Python, SQL , ML , Power BI |</br> Analyst @ Policybazaar.Com</p>
+                <p>Data Science Analyst | Python, SQL , ML , Power BI |<br> Analyst @ Policybazaar.Com</p>
             </div>
             <div class="hero-buttons">
                 <a href="#achievements" class="btn-main">View Achievements <i class="fas fa-arrow-right"></i></a>
@@ -78,9 +77,8 @@
             <div class="stat-label">Data Sets Pipeline Processed</div>
         </div>
         <div class="stat-card">
-            <!-- Added an id="total-experience" -->
             <div class="stat-num" id="total-experience">1.5+ Yrs</div>
-            <div class="stat-label"> Analytics Experience</div>
+            <div class="stat-label">Analytics Experience</div>
         </div>
     </div>
 
@@ -89,74 +87,76 @@
         <div class="bento-card experience-cell">
             <div class="section-header">Professional Experience</div>
             <div class="glowing-timeline">
-            <!-- 1. Policybazaar Experience -->
-            <div class="timeline-item">
-                <div class="timeline-top" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                    <div style="display: flex; gap: 15px; align-items: flex-start;">
-                        <img src="images/pblogo.avif" alt="Policybazaar" class="company-logo-box">
-                        <div class="timeline-titles">
-                            <h3>Data Science Analyst | Policybazaar</h3>
-                            <span>SEP 2025 - PRESENT • GURUGRAM, HARYANA</span>
-                        </div>                                     
+                
+                <!-- 1. Policybazaar Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-top" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <img src="images/pblogo.avif" alt="Policybazaar" class="company-logo-box">
+                            <div class="timeline-titles">
+                                <h3>Data Science Analyst | Policybazaar</h3>
+                                <span>SEP 2025 - PRESENT • GURUGRAM, HARYANA</span>
+                            </div>             
+                        </div>
+                        
+                        <div class="preview-thumb-box" style="width: 100px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0; position: relative;" onclick="openModal('images/Exp Docx/PB offer letter.jpg', 'Policybazaar Offer Letter', 'Offer letter.')" title="Click to view document">
+                            <img src="images/Exp Docx/PB offer letter.jpg" alt="Policybazaar Offer Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
-                    
-                    <div class="preview-thumb-box" style="width: 100px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0; position: relative;" onclick="openModal('images/Exp Docx/PB offer letter.jpg', 'Policybazaar Offer Letter', 'Offer letter.')" title="Click to view document">
-                        <img src="images/Exp Docx/PB offer letter.jpg" alt="Policybazaar Offer Preview" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                    <ul class="timeline-list">
+                        <li>Supporting the Health Insurance Analytics team by analyzing large-scale customer and policy datasets to derive business insights and performance metrics.</li>
+                        <li>Collaborated with cross-functional stakeholders to convert statistical findings into strategic decisions, supporting faster execution.</li>
+                        <li>Applied anomaly detection, rigorous data quality checks, and business logic to align insights with customer experience and stakeholder expectations.</li>
+                        <li><b>Endorsement Analytics Dashboard:</b> Developed a comprehensive Power BI dashboard that transformed endorsement audits—moving from manual checks of 1.3L+ monthly cases to direct tracking of 350–500 agent error cases, pinpointing root causes and reducing manual audit effort by over 90%.</li> 
+                        <li><b>Automated Reporting Hub:</b> Engineered and deployed a production-grade web application using Python, Pandas, and custom Streamlit session-state architectures; serving 10–12 daily users, consolidating 5–6 daily reports, eliminating 2–3 hour manual workflows, and saving 80+ hours monthly with high-speed rendering.</li>                          
+                    </ul>
                 </div>
-                <ul class="timeline-list">
-                    <li>Supporting the Health Insurance Analytics team by analyzing large-scale customer and policy datasets to derive business insights and performance metrics.</li>
-                    <li>Collaborated with cross-functional stakeholders to convert statistical findings into strategic decisions, supporting faster execution.</li>
-                    <li>Applied anomaly detection, rigorous data quality checks, and business logic to align insights with customer experience and stakeholder expectations.</li>
-                    <li><b>Endorsement Analytics Dashboard:</b> Developed a comprehensive Power BI dashboard that transformed endorsement audits—moving from manual checks of 1.3L+ monthly cases to direct tracking of 350–500 agent error cases, pinpointing root causes and reducing manual audit effort by over 90%.</li> 
-                    <li><b>Automated Reporting Hub:</b> Engineered and deployed a production-grade web application using Python, Pandas, and custom Streamlit session-state architectures; serving 10–12 daily users, consolidating 5–6 daily reports, eliminating 2–3 hour manual workflows, and saving 80+ hours monthly with high-speed rendering.</li>                          
-                </ul>
-            </div>
 
-            <div class="timeline-item">
-                            <div class="timeline-top" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <div style="display: flex; gap: 15px; align-items: flex-start;">
-                                    <img src="images/upgradlogo.png" alt="UpGrad" class="company-logo-box">
-                                    <div class="timeline-titles">
-                                        <h3>Product Quality Analyst Intern | UpGrad</h3>
-                                        <span>APRIL 2025 - JUL 2025 • REMOTE</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- UpGrad uses the multi-page modal function -->
-                                <div class="preview-thumb-box" style="width: 100px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0; position: relative;" onclick="openMultiPageModal('UpGrad Certificate', 'Internship Completion certificate for UpGrad (3 pages).', ['images/Exp Docx/upgrad_Certificate/1.jpg', 'images/Exp Docx/upgrad_Certificate/2.jpg', 'images/Exp Docx/upgrad_Certificate/3.jpg'])" title="Click to view document">
-                                    <img src="images/Exp Docx/upgrad_Certificate/1.jpg" alt="UpGrad Preview" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                            </div>
-                            <ul class="timeline-list">
-                                <li>Audited course content and LMS workflows to identify bugs, systemic inconsistencies, and friction zones.</li>
-                                <li>Provided structured feedback on marketing communications to ensure complete alignment with core course content.</li>
-                                <li>Tracked and reported high-impact UI/UX issues and navigation blocks to boost overall learner retention.</li>
-                                <li>Collaborated directly with product, content, and marketing departments to expedite platform enhancements.</li>
-                            </ul>
-                        </div>
-
-            <!-- 3. Quantium Experience -->
-        <div class="timeline-item">
-                        <div class="timeline-top" style="display: flex; justify-content: space-between; align-items: flex-start;">
-                            <div style="display: flex; gap: 15px; align-items: flex-start;">
-                                <img src="images/quantiumlogo.jpg" alt="Quantium" class="company-logo-box">
-                                <div class="timeline-titles">
-                                    <h3>Data Analytics Research Intern | Quantium</h3>
-                                    <span>Jul 2024 - Aug 2024 • REMOTE</span>
-                                </div>
-                            </div>
-                            
-                            <div class="preview-thumb-box" style="width: 100px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0; position: relative;" onclick="openModal('images/Exp Docx/Quantium_Certificate.jpg', 'Quantium Certificate', 'Internship completion certificate for Quantium.')" title="Click to view document">
-                                <img src="images/Exp Docx/Quantium_Certificate.jpg" alt="Quantium Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                <!-- 2. UpGrad Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-top" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <img src="images/upgradlogo.png" alt="UpGrad" class="company-logo-box">
+                            <div class="timeline-titles">
+                                <h3>Product Quality Analyst Intern | UpGrad</h3>
+                                <span>APRIL 2025 - JUL 2025 • REMOTE</span>
                             </div>
                         </div>
-                        <ul class="timeline-list">
-                            <li>Processed 50K+ structured transactions through an optimized Python pipeline for large-scale trend and behavior reporting.</li>
-                            <li>Uncovered 3 critical purchasing patterns using exploratory data analysis (EDA), leading directly to a 15% increase in Average Order Value (AOV).</li>
-                            <li>Translated complex statistical evaluations into practical executive frameworks for business decision-makers.</li>
-                        </ul>
+                        
+                        <div class="preview-thumb-box" style="width: 100px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0; position: relative;" onclick="openMultiPageModal('UpGrad Certificate', 'Internship Completion certificate for UpGrad (3 pages).', ['images/Exp Docx/upgrad_Certificate/1.jpg', 'images/Exp Docx/upgrad_Certificate/2.jpg', 'images/Exp Docx/upgrad_Certificate/3.jpg'])" title="Click to view document">
+                            <img src="images/Exp Docx/upgrad_Certificate/1.jpg" alt="UpGrad Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                     </div>
+                    <ul class="timeline-list">
+                        <li>Audited course content and LMS workflows to identify bugs, systemic inconsistencies, and friction zones.</li>
+                        <li>Provided structured feedback on marketing communications to ensure complete alignment with core course content.</li>
+                        <li>Tracked and reported high-impact UI/UX issues and navigation blocks to boost overall learner retention.</li>
+                        <li>Collaborated directly with product, content, and marketing departments to expedite platform enhancements.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Quantium Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-top" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <img src="images/quantiumlogo.jpg" alt="Quantium" class="company-logo-box">
+                            <div class="timeline-titles">
+                                <h3>Data Analytics Research Intern | Quantium</h3>
+                                <span>Jul 2024 - Aug 2024 • REMOTE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-thumb-box" style="width: 100px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0; position: relative;" onclick="openModal('images/Exp Docx/Quantium_Certificate.jpg', 'Quantium Certificate', 'Internship completion certificate for Quantium.')" title="Click to view document">
+                            <img src="images/Exp Docx/Quantium_Certificate.jpg" alt="Quantium Preview" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Processed 50K+ structured transactions through an optimized Python pipeline for large-scale trend and behavior reporting.</li>
+                        <li>Uncovered 3 critical purchasing patterns using exploratory data analysis (EDA), leading directly to a 15% increase in Average Order Value (AOV).</li>
+                        <li>Translated complex statistical evaluations into practical executive frameworks for business decision-makers.</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
@@ -213,11 +213,11 @@
                     <div class="edu-item" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                         <div class="edu-info" style="flex: 1;">
                             <h4>B.Tech in Information Technology</h4>
-                            <p>Maharaja Surajmal Institute of Technology (MSIT),New Delhi</p>
+                            <p>Maharaja Surajmal Institute of Technology (MSIT), New Delhi</p>
                         </div>
                         <div class="edu-score" style="display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
                             <div class="preview-thumb-box" style="width: 50px; height: 50px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 107, 0, 0.3); cursor: pointer; flex-shrink: 0;" onclick="openModal('images/degree.jpg', 'Provisional Certificate', '')">
-                                <img src="images/degree.jpg" alt="Degree Preview" style="width: 100%; height: 100%; object-fit: cover; animation: none !important; transform: none !important;">
+                                <img src="images/degree.jpg" alt="Degree Preview" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div style="text-align: right;">
                                 <div class="score-val">9.02 CGPA</div>
@@ -229,7 +229,7 @@
                     <div class="edu-item">
                         <div class="edu-info">
                             <h4>Class 12th (Senior Secondary)</h4>
-                            <p>KV No.3 Delhi Cantt,New Delhi</p>
+                            <p>KV No.3 Delhi Cantt, New Delhi</p>
                         </div>
                         <div class="edu-score">
                             <div class="score-val">93%</div>
@@ -311,7 +311,6 @@
 <!-- Single Unified Modal Popup -->
 <div class="modal-overlay" id="certificateModal" onclick="closeModal()">
     <div class="cute-dialog-box" onclick="event.stopPropagation()">
-        <!-- Dynamic container that swaps between <img> and <iframe> depending on file type -->
         <div id="modalMediaContainer" style="width: 100%; display: flex; justify-content: center; align-items: center;">
             <img id="modalImg" src="" alt="Certificate Preview">
         </div>
@@ -320,7 +319,8 @@
         <button class="close-dialog-btn" onclick="closeModal()">Close Window</button>
     </div>
 </div>
-<!-- 👉 ADD THIS LINE HERE TO CONNECT YOUR JAVASCRIPT -->
+
+<!-- Connect your JavaScript -->
 <script src="script.js"></script>
 
 </body>
