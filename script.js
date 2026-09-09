@@ -1,10 +1,5 @@
 // --- COMBINED DOM CONTENT LOADED EVENT ---
 document.addEventListener("DOMContentLoaded", function() {
-<<<<<<< HEAD
-    calculateTotalExperience();
-});
-
-=======
     
     // 1. Mobile Check: Remove broken PDF iframes on phones/tablets
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -18,21 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
     calculateTotalExperience();
 });
 
-
->>>>>>> d47cd172fafb115ac3f20f4846dd8886d0bc350f
 // --- CALCULATE TOTAL EXPERIENCE DYNAMICALLY ---
 function calculateTotalExperience() {
     // NOTE: JavaScript months are 0-indexed (0 = Jan, 6 = Jul, 7 = Aug, 8 = Sep)
     const workExperiences = [
-<<<<<<< HEAD
-        { start: [2024, 6], end: [2024, 7] },   // Quantium: July 2024 - August 2024
-        { start: [2025, 3], end: [2025, 6] },   // UpGrad: April 2025 - July 2025
-        { start: [2025, 8], end: null }         // Policybazaar: September 2025 - Present
-=======
         { start: [2024, 6], end: [2024, 7] },   // Quantium: July 2024 - August 2024 (Index 6 to 7)
         { start: [2025, 3], end: [2025, 6] },   // UpGrad: April 2025 - July 2025 (Index 3 to 6)
         { start: [2025, 8], end: null }         // Policybazaar: September 2025 - Present (Index 8 to Present)
->>>>>>> d47cd172fafb115ac3f20f4846dd8886d0bc350f
     ];
 
     let totalMonths = 0;
@@ -62,12 +49,7 @@ function calculateTotalExperience() {
     }
 }
 
-<<<<<<< HEAD
-// --- SINGLE PAGE MODAL (Policybazaar & Quantium) ---
-=======
-
 // --- MODAL & INTERACTION FUNCTIONS ---
->>>>>>> d47cd172fafb115ac3f20f4846dd8886d0bc350f
 function openModal(filePath, title, desc) {
     const mediaContainer = document.getElementById('modalMediaContainer');
     document.getElementById('modalTitle').innerText = title;
